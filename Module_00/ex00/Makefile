@@ -1,6 +1,9 @@
 # COMPILER AND FLAGS
-CC = clang++
+CPP = clang++
 CFLAGS = -Wall -Wextra -Werror
+
+# RM
+RM = rm -f
 
 # SOURCES
 SRCS = megaphone.cpp
@@ -9,13 +12,21 @@ SRCS = megaphone.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 #  EXECUTABLE
-MAIN = megaphone
+NAME = megaphone
 
-all:		$(MAIN)
+all:		$(NAME)
 
-$(MAIN):	$(OBJS)
-			$(CC) $(CFLAGS) -o $(MAIN) $(OBJS)
+$(NAME):	$(OBJS)
+			$(CPP) $(CFLAGS) -o $(NAME) $(OBJS)
 
-.cpp.o:		$(CC) $(CFLAGS) -c $< -o $@
+.cpp.o:		$(CPP) $(CFLAGS) -c $< -o $@
 
-clean:		$(RM) *.o *~ $(MAIN)
+clean:
+			$(RM) $(OBJS)
+
+fclean:		clean
+			$(RM) $(NAME)
+
+re:			fclean all
+
+.PHONY:		all clean fclean re
