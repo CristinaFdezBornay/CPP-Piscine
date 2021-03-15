@@ -11,22 +11,29 @@ SRCS = megaphone.cpp
 # OBJECTS
 OBJS = $(SRCS:.cpp=.o)
 
-#  EXECUTABLE
+# EXECUTABLE
 NAME = megaphone
 
+# RULES
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
 			$(CPP) $(CFLAGS) -o $(NAME) $(OBJS)
+			printf "\033[0;32m[cpp00 -> ex01] Compilation [$@] [OK]\n"
 
-.cpp.o:		$(CPP) $(CFLAGS) -c $< -o $@
+$(OBJS):	$(SRCS) Makefile
+			$(CPP) $(CFLAGS) -c $< -o $@
+			printf "\033[0;32m[cpp00 -> ex01] Linking [$< -> $@] [OK]\n"
 
 clean:
 			$(RM) $(OBJS)
+			printf "\033[0;31m[cpp00 -> ex01] Clean  [OK]\n"
 
 fclean:		clean
 			$(RM) $(NAME)
+			printf "\033[0;31m[cpp00 -> ex01] Fclean [OK]\n"
 
 re:			fclean all
 
 .PHONY:		all clean fclean re
+.SILENT:
