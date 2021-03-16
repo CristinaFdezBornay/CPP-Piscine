@@ -60,9 +60,8 @@ int         program(Contact *phonebooooook, int contacts) {
 
 int         main(void) {
     int             output;
-    Contact         *phonebooooook;
+    Contact         phonebooooook[8];
 
-    phonebooooook = new Contact[8];
     output = program(phonebooooook, 0);
     if (output == 1)
         std::cout << "There has been a problem while processing!" << std::endl;
