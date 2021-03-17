@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
 # SOURCES
-SRCS = main.cpp
+SRCS = main.cpp contact.cpp
 
 # OBJECTS
 OBJS = $(SRCS:.cpp=.o)

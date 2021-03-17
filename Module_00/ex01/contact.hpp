@@ -1,116 +1,59 @@
-#include    <iostream>
+#ifndef __CONTACT_H__
+# define __CONTACT_H__
+
+# include <iostream>
 
 class       Contact{
+
     public:
-        int         Create(int id);
-        bool        does_exist(int id);
-        int         print_general_information();
-        int         print_complete_information();
+        int         Add();
+
+        bool        does_exist( int id ) const;
+        int         print_general_information() const;
+        int         print_complete_information() const;
+
+        void        setNumber_contacts( int input );
+        void        setIdentifier( int input );
+        void        setFirst_name( std::string input );
+        void        setLast_name( std::string input );
+        void        setNickname( std::string input );
+        // void        setLogin( std::string input );
+        // void        setPostal_adress( std::string input );
+        // void        setEmail_adress( std::string input );
+        // void        setPhone_number( std::string input );
+        // void        setBirthday_date( std::string input );
+        // void        setFav_meal( std::string input );
+        // void        setUnderwear_color( std::string input );
+        // void        setDarkest_secret( std::string input );
+        int         getNumber_contacts( void ) const ;
+        int         getIdentifier( void ) const ;
+        std::string getFirst_name( void ) const ;
+        std::string getLast_name( void ) const ;
+        std::string getNickname( void ) const ;
+        // std::string getLogin( void ) const ;
+        // std::string getPostal_adress( void ) const ;
+        // std::string getEmail_adress( void ) const ;
+        // std::string getPhone_number( void ) const ;
+        // std::string getBirthday_date( void ) const ;
+        // std::string getFav_meal( void ) const ;
+        // std::string getUnderwear_color( void ) const ;
+        // std::string getDarkest_secret( void ) const ;
+
     private:
-        int         identifier;
-        std::string first_name;
-        std::string last_name;
-        std::string nickname;
-        std::string login;
-        std::string postal_adress;
-        std::string email_adress;
-        std::string phone_number;
-        std::string birthday_date;
-        std::string fav_meal;
-        std::string underwear_color;
-        std::string darkest_secret;
-        std::string format_information(std::string information);
+        static int  _number_contacts;
+        int         _identifier;
+        std::string _first_name;
+        std::string _last_name;
+        std::string _nickname;
+        // std::string _login;
+        // std::string _postal_adress;
+        // std::string _email_adress;
+        // std::string _phone_number;
+        // std::string _birthday_date;
+        // std::string _fav_meal;
+        // std::string _underwear_color;
+        // std::string _darkest_secret;
+        std::string _format_information(std::string information) const;
 };
 
-int             Contact::Create(int id){
-    identifier = id;
-    std::cout << "Introduce your first name:" << std::endl;
-    std::getline (std::cin,first_name);
-    std::cout << "Introduce your last name:" << std::endl;
-    std::getline (std::cin,last_name);
-    std::cout << "Introduce your nickname:" << std::endl;
-    std::getline (std::cin,nickname);
-    std::cout << "Introduce your login:" << std::endl;
-    std::getline (std::cin,login);
-    std::cout << "Introduce your postal address:" << std::endl;
-    std::getline (std::cin,postal_adress);
-    std::cout << "Introduce your email address:" << std::endl;
-    std::getline (std::cin,email_adress);
-    std::cout << "Introduce your phone number:" << std::endl;
-    std::getline (std::cin,phone_number);
-    std::cout << "Introduce your birthday date:" << std::endl;
-    std::getline (std::cin,birthday_date);
-    std::cout << "Introduce your favourite meal:" << std::endl;
-    std::getline (std::cin,fav_meal);
-    std::cout << "Introduce your underwear color:" << std::endl;
-    std::getline (std::cin,underwear_color);
-    std::cout << "Introduce your darkest secret:" << std::endl;
-    std::getline (std::cin,darkest_secret);
-    return 0;
-}
-
-bool            Contact::does_exist(int id){
-    if (id == identifier)
-        return true;
-    return false;
-}
-
-std::string     Contact::format_information(std::string information) {
-    int         len = int(information.length());
-    std::string formatted_information = "";
-
-    if (len > 10) {
-        formatted_information.append(information, 0, 9);
-        formatted_information += '.';
-        return formatted_information;
-    }
-    for (int i = 0; i < 10 - len; ++i)
-        formatted_information += ' ';
-    formatted_information.append(information, 0, len);
-    return formatted_information;
-}
-
-int                 Contact::print_general_information() {
-    std::string     general_information = "| ";
-
-    general_information += identifier + '0';
-    general_information += " |";
-    general_information += format_information(first_name);
-    general_information += "|";
-    general_information += format_information(last_name);
-    general_information += "|";
-    general_information += format_information(nickname);
-    general_information += "|";
-    std::cout << general_information << std::endl;
-    return 0;
-}
-
-int                 Contact::print_complete_information(){
-    std::string     complete_information = "\nINFORMATION -> ID : ";
-
-    complete_information += identifier + '0';
-    complete_information += "\nFirst Name        : ";
-    complete_information += first_name;
-    complete_information += "\nLast Name         : ";
-    complete_information += last_name;
-    complete_information += "\nNickname          : ";
-    complete_information += nickname;
-    complete_information += "\nLogin             : ";
-    complete_information += login;
-    complete_information += "\nPostal Address    : ";
-    complete_information += postal_adress;
-    complete_information += "\nEmail Address     : ";
-    complete_information += email_adress;
-    complete_information += "\nPhone number      : ";
-    complete_information += phone_number;
-    complete_information += "\nBirthdate         : ";
-    complete_information += birthday_date;
-    complete_information += "\nFavourite meal    : ";
-    complete_information += fav_meal;
-    complete_information += "\nUnderwear color   : ";
-    complete_information += underwear_color;
-    complete_information += "\nDarkest Secret    : ";
-    complete_information += darkest_secret;
-    std::cout << complete_information << std::endl;
-    return 0;
-}
+#endif
