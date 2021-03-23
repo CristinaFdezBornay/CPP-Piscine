@@ -6,61 +6,61 @@ void                Contact::setNumber_contacts( int input ) {
 }
 
 void                Contact::setIdentifier( int input ) {
-    Contact::_identifier = input;
+    this->_identifier = input;
     return;
 }
 void                Contact::setFirst_name( std::string input ) {
-    Contact::_first_name = input;
+    this->_first_name = input;
     return;
 }
 
 void                Contact::setLast_name( std::string input ) {
-    Contact::_last_name = input;
+    this->_last_name = input;
     return;
 }
 
 void                Contact::setNickname( std::string input ) {
-    Contact::_nickname = input;
+    this->_nickname = input;
     return;
 }
 
 void                Contact::setLogin( std::string input) {
-    Contact::_login = input;
+    this->_login = input;
     return;
 }
 
 void                Contact::setPostal_adress( std::string input) {
-    Contact::_postal_adress = input;
+    this->_postal_adress = input;
     return;
 }
 
 void                Contact::setEmail_adress( std::string input) {
-    Contact::_email_adress = input;
+    this->_email_adress = input;
     return;
 }
 
 void                Contact::setPhone_number( std::string input) {
-    Contact::_phone_number = input;
+    this->_phone_number = input;
     return;
 }
 
 void                Contact::setBirthday_date( std::string input) {
-    Contact::_birthday_date = input;
+    this->_birthday_date = input;
     return;
 }
 
 void                Contact::setFav_meal( std::string input) {
-    Contact::_fav_meal = input;
+    this->_fav_meal = input;
     return;
 }
 
 void                Contact::setUnderwear_color( std::string input) {
-    Contact::_underwear_color = input;
+    this->_underwear_color = input;
     return;
 }
 
 void                Contact::setDarkest_secret( std::string input) {
-    Contact::_darkest_secret = input;
+    this->_darkest_secret = input;
     return;
 }
 
@@ -69,51 +69,51 @@ int                 Contact::getNumber_contacts( void ) const {
 }
 
 int                 Contact::getIdentifier( void ) const {
-    return Contact::_identifier;
+    return this->_identifier;
 }
 
 std::string         Contact::getFirst_name( void ) const {
-    return Contact::_first_name;
+    return this->_first_name;
 }
 
 std::string         Contact::getLast_name( void ) const {
-    return Contact::_last_name;
+    return this->_last_name;
 }
 
 std::string      Contact::getNickname( void ) const {
-    return Contact::_nickname;
+    return this->_nickname;
 }
 
 std::string      Contact::getLogin( void ) const {
-    return Contact::_login;
+    return this->_login;
 }
 
 std::string      Contact::getPostal_adress( void ) const {
-    return Contact::_postal_adress;
+    return this->_postal_adress;
 }
 
 std::string      Contact::getEmail_adress( void ) const {
-    return Contact::_email_adress;
+    return this->_email_adress;
 }
 
 std::string      Contact::getPhone_number( void ) const {
-    return Contact::_phone_number;
+    return this->_phone_number;
 }
 
 std::string      Contact::getBirthday_date( void ) const {
-    return Contact::_birthday_date;
+    return this->_birthday_date;
 }
 
 std::string      Contact::getFav_meal( void ) const {
-    return Contact::_fav_meal;
+    return this->_fav_meal;
 }
 
 std::string      Contact::getUnderwear_color( void ) const {
-    return Contact::_underwear_color;
+    return this->_underwear_color;
 }
 
 std::string      Contact::getDarkest_secret( void ) const {
-    return Contact::_nickname;
+    return this->_nickname;
 }
 
 int             Contact::Add(){
