@@ -24,14 +24,45 @@ void                Contact::setNickname( std::string input ) {
     return;
 }
 
-// void                Contact::setLogin( std::string input );
-// void                Contact::setPostal_adress( std::string input );
-// void                Contact::setEmail_adress( std::string input );
-// void                Contact::setPhone_number( std::string input );
-// void                Contact::setBirthday_date( std::string input );
-// void                Contact::setFav_meal( std::string input );
-// void                Contact::setUnderwear_color( std::string input );
-// void                Contact::setDarkest_secret( std::string input );
+void                Contact::setLogin( std::string input) {
+    Contact::_login = input;
+    return;
+}
+
+void                Contact::setPostal_adress( std::string input) {
+    Contact::_postal_adress = input;
+    return;
+}
+
+void                Contact::setEmail_adress( std::string input) {
+    Contact::_email_adress = input;
+    return;
+}
+
+void                Contact::setPhone_number( std::string input) {
+    Contact::_phone_number = input;
+    return;
+}
+
+void                Contact::setBirthday_date( std::string input) {
+    Contact::_birthday_date = input;
+    return;
+}
+
+void                Contact::setFav_meal( std::string input) {
+    Contact::_fav_meal = input;
+    return;
+}
+
+void                Contact::setUnderwear_color( std::string input) {
+    Contact::_underwear_color = input;
+    return;
+}
+
+void                Contact::setDarkest_secret( std::string input) {
+    Contact::_darkest_secret = input;
+    return;
+}
 
 int                 Contact::getNumber_contacts( void ) const {
     return Contact::_number_contacts;
@@ -40,6 +71,7 @@ int                 Contact::getNumber_contacts( void ) const {
 int                 Contact::getIdentifier( void ) const {
     return Contact::_identifier;
 }
+
 std::string         Contact::getFirst_name( void ) const {
     return Contact::_first_name;
 }
@@ -52,6 +84,37 @@ std::string      Contact::getNickname( void ) const {
     return Contact::_nickname;
 }
 
+std::string      Contact::getLogin( void ) const {
+    return Contact::_login;
+}
+
+std::string      Contact::getPostal_adress( void ) const {
+    return Contact::_postal_adress;
+}
+
+std::string      Contact::getEmail_adress( void ) const {
+    return Contact::_email_adress;
+}
+
+std::string      Contact::getPhone_number( void ) const {
+    return Contact::_phone_number;
+}
+
+std::string      Contact::getBirthday_date( void ) const {
+    return Contact::_birthday_date;
+}
+
+std::string      Contact::getFav_meal( void ) const {
+    return Contact::_fav_meal;
+}
+
+std::string      Contact::getUnderwear_color( void ) const {
+    return Contact::_underwear_color;
+}
+
+std::string      Contact::getDarkest_secret( void ) const {
+    return Contact::_nickname;
+}
 
 int             Contact::Add(){
     std::string     input;
@@ -66,30 +129,31 @@ int             Contact::Add(){
     std::cout << "Introduce your nickname:" << std::endl;
     std::getline( std::cin, input );
     setNickname( input );
-    // std::cout << "Introduce your login:" << std::endl;
-    // std::getline (std::cin,login);
-    // std::cout << "Introduce your postal address:" << std::endl;
-    // std::getline (std::cin,postal_adress);
-    // std::cout << "Introduce your email address:" << std::endl;
-    // std::getline (std::cin,email_adress);
-    // std::cout << "Introduce your phone number:" << std::endl;
-    // std::getline (std::cin,phone_number);
-    // std::cout << "Introduce your birthday date:" << std::endl;
-    // std::getline (std::cin,birthday_date);
-    // std::cout << "Introduce your favourite meal:" << std::endl;
-    // std::getline (std::cin,fav_meal);
-    // std::cout << "Introduce your underwear color:" << std::endl;
-    // std::getline (std::cin,underwear_color);
-    // std::cout << "Introduce your darkest secret:" << std::endl;
-    // std::getline (std::cin,darkest_secret);
+    std::cout << "Introduce your login:" << std::endl;
+    std::getline( std::cin, input );
+    setLogin( input );
+    std::cout << "Introduce your postal address:" << std::endl;
+    std::getline( std::cin, input );
+    setPostal_adress( input );
+    std::cout << "Introduce your email address:" << std::endl;
+    std::getline( std::cin, input );
+    setEmail_adress( input );
+    std::cout << "Introduce your phone number:" << std::endl;
+    std::getline( std::cin, input );
+    setPhone_number( input );
+    std::cout << "Introduce your birthday date:" << std::endl;
+    std::getline( std::cin, input );
+    setBirthday_date( input );
+    std::cout << "Introduce your favourite meal:" << std::endl;
+    std::getline( std::cin, input );
+    setFav_meal( input );
+    std::cout << "Introduce your underwear color:" << std::endl;
+    std::getline( std::cin, input );
+    setUnderwear_color( input );
+    std::cout << "Introduce your darkest secret:" << std::endl;
+    std::getline( std::cin, input );
+    setDarkest_secret( input );
     return 0;
-}
-
-
-bool            Contact::does_exist(int id) const {
-    if (id == getIdentifier())
-        return true;
-    return false;
 }
 
 std::string     Contact::_format_information(std::string information) const {
@@ -132,22 +196,22 @@ int                 Contact::print_complete_information() const {
     complete_information += getLast_name();
     complete_information += "\nNickname          : ";
     complete_information += getNickname();
-    // complete_information += "\nLogin             : ";
-    // complete_information += login;
-    // complete_information += "\nPostal Address    : ";
-    // complete_information += postal_adress;
-    // complete_information += "\nEmail Address     : ";
-    // complete_information += email_adress;
-    // complete_information += "\nPhone number      : ";
-    // complete_information += phone_number;
-    // complete_information += "\nBirthdate         : ";
-    // complete_information += birthday_date;
-    // complete_information += "\nFavourite meal    : ";
-    // complete_information += fav_meal;
-    // complete_information += "\nUnderwear color   : ";
-    // complete_information += underwear_color;
-    // complete_information += "\nDarkest Secret    : ";
-    // complete_information += darkest_secret;
+    complete_information += "\nLogin             : ";
+    complete_information += getLogin();
+    complete_information += "\nPostal Address    : ";
+    complete_information += getPostal_adress();
+    complete_information += "\nEmail Address     : ";
+    complete_information += getEmail_adress();
+    complete_information += "\nPhone number      : ";
+    complete_information += getPhone_number();
+    complete_information += "\nBirthdate         : ";
+    complete_information += getBirthday_date();
+    complete_information += "\nFavourite meal    : ";
+    complete_information += getFav_meal();
+    complete_information += "\nUnderwear color   : ";
+    complete_information += getUnderwear_color();
+    complete_information += "\nDarkest Secret    : ";
+    complete_information += getDarkest_secret();
     std::cout << complete_information << std::endl;
     return 0;
 }

@@ -25,8 +25,8 @@ $(NAME):	$(OBJS)
 			printf "\033[0;32m[cpp00 -> ex01] Compilation [$@] [OK]\n"
 
 $(OBJS):	$(SRCS) Makefile
-			$(CPP) $(CFLAGS) -c $< -o $@
-			printf "\033[0;32m[cpp00 -> ex01] Linking [$< -> $@] [OK]\n"
+			$(CPP) $(CFLAGS) -c $(SRCS)
+			printf "\033[0;32m[cpp00 -> ex01] Linking [$(OBJS) -> $@] [OK]\n"
 
 clean:
 			$(RM) $(OBJS)

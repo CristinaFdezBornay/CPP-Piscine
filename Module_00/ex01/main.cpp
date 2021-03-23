@@ -3,7 +3,7 @@
 int         program(Contact *phonebooooook);
 
 int         add_contact(Contact *phonebooooook) {
-    if (phonebooooook->getNumber_contacts() > 8)
+    if (phonebooooook->getNumber_contacts() >= 8)
         std::cout << "The phonebooooook is full, you cannot ADD." << std::endl;
     else {
         phonebooooook[phonebooooook->getNumber_contacts()].Add();
@@ -12,31 +12,39 @@ int         add_contact(Contact *phonebooooook) {
     return program(phonebooooook);
 }
 
+int        print_general_info_and_get_index(Contact *phonebooooook) {
+    std::string     index_str;
+    int             index;
+
+    std::cout << "    +----------+----------+----------+" << std::endl;
+    std::cout << "    |   NAME   |  FAMILY  | NICKNAME |" << std::endl;
+    std::cout << "+---+----------+----------+----------+" << std::endl;
+    for (int i = 0; i < phonebooooook->getNumber_contacts(); ++i) {
+        phonebooooook[i].print_general_information();
+        std::cout << "+---+----------+----------+----------+" << std::endl;
+    }
+    std::cout << "Introduce the index of the desired contact:" << std::endl;
+    std::getline (std::cin,index_str);
+    index = int(index_str[0] - '0');
+    if (index >= 0 and index <= phonebooooook->getNumber_contacts() - 1 and index_str[1] == 0) {
+        return index;
+    }
+    return -1;
+}
+
 int         search_contact(Contact *phonebooooook) {
     int             index;
-    std::string     index_str;
 
-
-    if (phonebooooook->getNumber_contacts() == 0)
+    if (phonebooooook->getNumber_contacts() == 0) {
         std::cout << "The phonebooooook is empty, you cannot SEARCH." << std::endl;
-    else {
-        std::cout << "    +----------+----------+----------+" << std::endl;
-        std::cout << "    |   NAME   |  FAMILY  | NICKNAME |" << std::endl;
-        std::cout << "+---+----------+----------+----------+" << std::endl;
-        for (int i = 0; i < phonebooooook->getNumber_contacts(); ++i) {
-            phonebooooook[i].print_general_information();
-            std::cout << "+---+----------+----------+----------+" << std::endl;
-        }
-        std::cout << "Introduce the index of the desired contact:" << std::endl;
-        std::getline (std::cin,index_str);
-        index = int(index_str[0] - '0');
-        if (index >= 0 and index <= 8 && phonebooooook[index].does_exist(index))
-            phonebooooook[index].print_complete_information();
-        else {
-            std::cout << "Introduce a valid index!" << std::endl;
-            return search_contact(phonebooooook);
-        }
+        return program(phonebooooook);
     }
+    index = print_general_info_and_get_index(phonebooooook);
+    if (index == -1) {
+        std::cout << "Introduce a valid index!" << std::endl;
+        return search_contact(phonebooooook);
+    }
+    phonebooooook[index].print_complete_information();
     return program(phonebooooook);
 }
 
