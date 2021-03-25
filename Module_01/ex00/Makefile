@@ -25,11 +25,11 @@ NAME = ponyyyyy
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-			$(CPP) -I $(INCL) -o $(NAME) $(OBJS)
+			$(CPP) $(CFLAGS) -I $(INCL) -o $(NAME) $(OBJS)
 			printf "\033[0;32m[$(DAY) -> $(EX)] Compilation [ $@ ] [OK]\n"
 
 $(OBJS):	$(SRCS) Makefile
-			$(CPP) -c $(SRCS)
+			$(CPP) $(CFLAGS) -c $(SRCS)
 			printf "\033[0;32m[$(DAY) -> $(EX)] Linking [ $(OBJS) ] [OK]\n"
 
 clean:

@@ -3,7 +3,7 @@
 Pony::Pony( std::string name ) {
     this->setName(name);
     this->setNumberCarrotsEaten(0);
-    std::cout << "The baby pony " << this->getName() << " is born!" << std::endl;
+    std::cout << "The baby pony " << this->getName() << " is born in the address " << this << std::endl;
 }
 
 Pony::~Pony( void ) {
