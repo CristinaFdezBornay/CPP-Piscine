@@ -1,3 +1,7 @@
+# INFO PROYECT
+DAY = C++ 00
+EX = Ex 01
+
 # COMPILER AND FLAGS
 CPP = clang++
 CFLAGS = -Wall -Wextra -Werror
@@ -15,26 +19,26 @@ OBJS = $(SRCS:.cpp=.o)
 INCL = contact.hpp
 
 # EXECUTABLE
-NAME = phoneboooooook
+NAME = phoneboooooooookK
 
 # RULES
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-			$(CPP) $(CFLAGS) -I $(INCL) -o $(NAME) $(OBJS)
-			printf "\033[0;32m[cpp00 -> ex01] Compilation [$@] [OK]\n"
+			$(CPP) $(CFLAGS) $(OBJS) -o $(NAME)
+			printf "\033[0;32m[ $(DAY) -> $(EX) ] Linking [ $(NAME) ] [ OK ]\n"
 
 $(OBJS):	$(SRCS) Makefile
 			$(CPP) $(CFLAGS) -c $(SRCS)
-			printf "\033[0;32m[cpp00 -> ex01] Linking [$(OBJS) -> $@] [OK]\n"
+			printf "\033[0;32m[ $(DAY) -> $(EX) ] Compilation [ $(SRCS) -> $(OBJS) ] [ OK ]\n"
 
 clean:
 			$(RM) $(OBJS)
-			printf "\033[0;31m[cpp00 -> ex01] Clean  [OK]\n"
+			printf "\033[0;31m[ $(DAY) -> $(EX) ] Clean  [ OK ]\n"
 
 fclean:		clean
 			$(RM) $(NAME)
-			printf "\033[0;31m[cpp00 -> ex01] Fclean [OK]\n"
+			printf "\033[0;31m[ $(DAY) -> $(EX) ] Fclean [ OK ]\n"
 
 re:			fclean all
 

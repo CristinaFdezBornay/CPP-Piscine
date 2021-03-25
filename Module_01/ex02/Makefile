@@ -4,8 +4,7 @@ EX = Ex 02
 
 # COMPILER AND FLAGS
 CPP = clang++
-CFLAGS = 
-# CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 # RM
 RM = rm -f
@@ -26,20 +25,20 @@ NAME = ZzzzzombiieeessssssSS
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-			$(CPP) $(CFLAGS) -I $(INCL) $(OBJS) -o $(NAME)
-			printf "\033[0;32m[$(DAY) -> $(EX)] Compilation [ $@ ] [OK]\n"
+			$(CPP) $(CFLAGS) $(OBJS) -o $(NAME)
+			printf "\033[0;32m[ $(DAY) -> $(EX) ] Linking [ $(NAME) ] [ OK ]\n"
 
 $(OBJS):	$(SRCS) Makefile
 			$(CPP) $(CFLAGS) -c $(SRCS)
-			printf "\033[0;32m[$(DAY) -> $(EX)] Linking [ $(OBJS) ] [OK]\n"
+			printf "\033[0;32m[ $(DAY) -> $(EX) ] Compilation [ $(SRCS) -> $(OBJS) ] [ OK ]\n"
 
 clean:
 			$(RM) $(OBJS)
-			printf "\033[0;31m[$(DAY) -> $(EX)] Clean  [ OK ]\n"
+			printf "\033[0;31m[ $(DAY) -> $(EX) ] Clean  [ OK ]\n"
 
 fclean:		clean
 			$(RM) $(NAME)
-			printf "\033[0;31m[$(DAY) -> $(EX)] Fclean [ OK ]\n"
+			printf "\033[0;31m[ $(DAY) -> $(EX) ] Fclean [ OK ]\n"
 
 re:			fclean all
 
