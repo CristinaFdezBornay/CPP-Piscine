@@ -9,7 +9,6 @@ class       Contact{
         int         Add();
         int         print_general_information() const;
         int         print_complete_information() const;
-        void        setNumber_contacts( int input );
         void        setIdentifier( int input );
         void        setFirst_name( std::string input );
         void        setLast_name( std::string input );
@@ -22,7 +21,6 @@ class       Contact{
         void        setFav_meal( std::string input );
         void        setUnderwear_color( std::string input );
         void        setDarkest_secret( std::string input );
-        int         getNumber_contacts( void ) const ;
         int         getIdentifier( void ) const ;
         std::string getFirst_name( void ) const ;
         std::string getLast_name( void ) const ;
@@ -36,8 +34,10 @@ class       Contact{
         std::string getUnderwear_color( void ) const ;
         std::string getDarkest_secret( void ) const ;
 
+        static void setNumber_contacts( int input );
+        static int  getNumber_contacts( void );
+
     private:
-        static int  _number_contacts;
         int         _identifier;
         std::string _first_name;
         std::string _last_name;
@@ -51,6 +51,8 @@ class       Contact{
         std::string _underwear_color;
         std::string _darkest_secret;
         std::string _format_information(std::string information) const;
+
+        static int  _number_contacts;
 };
 
 #endif

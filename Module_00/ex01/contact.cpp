@@ -64,7 +64,7 @@ void                Contact::setDarkest_secret( std::string input) {
     return;
 }
 
-int                 Contact::getNumber_contacts( void ) const {
+int                 Contact::getNumber_contacts( void ) {
     return Contact::_number_contacts;
 }
 
