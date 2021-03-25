@@ -1,5 +1,11 @@
 #include "Zombie.hpp"
 
+Zombie::Zombie( std::string type ) {
+    this->setType( type );
+    std::cout << "[ NEW ZOMBIE " << this->getName() << " ]" << std::endl;
+    return;
+}
+
 Zombie::Zombie( std::string name, std::string type ) {
     this->setName( name );
     this->setType( type );
@@ -21,6 +27,7 @@ void        Zombie::setType( std::string type ) {
     this->_type = type;
     return ;
 }
+
 std::string Zombie::getName( void ) const {
     return this->_name;
 }

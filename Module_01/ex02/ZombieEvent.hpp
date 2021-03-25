@@ -8,14 +8,14 @@ class       ZombieEvent {
         ZombieEvent( void );
         ~ZombieEvent( void );
 
-        void        setZombieType( std::string type );
-        std::string *getZombieType( void ) const;
+        void        setZombieType( void );
+        std::string getZombieType( void ) const;
 
         Zombie      *newZombie( std::string name ) const ;
         Zombie      *randomChump( void ) const ;
 
     private:
-        std::string *_zombieType;
+        std::string _zombieType;
 };
 
 #endif

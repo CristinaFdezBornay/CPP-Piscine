@@ -2,27 +2,28 @@
 
 int     main( void ) {
     std::string     input;
-    std::string     nameAllocatedZombie;
     ZombieEvent     *zombieEvent;
-    Zombie          *allocatedZombie;
-    Zombie          *notAllocatedZombie;
+    Zombie          *babyZombie;
+    Zombie          *randomZombie;
     
     std::cout << "WELCOME TO ZOMBIELAND !\n\n" << std::endl;
     zombieEvent = new ZombieEvent();
-
-    std::cout << "What type of zombie are your zombies ?" << std::endl;
-    std::getline( std::cin, input );
-    zombieEvent->setZombieType(input);
-
+    zombieEvent->setZombieType();
     std::cout << "\nNow we are going to have some zombies !\n" << std::endl;
-    std::cout << "What is the name of you baby allocated zombie ?" << std::endl;
-    std::getline( std::cin, nameAllocatedZombie );
-    allocatedZombie = zombieEvent->newZombie( nameAllocatedZombie );
-    allocatedZombie->announce();
-    std::cout << "Now, a ramdom bastard zombie" << std::endl;
-    notAllocatedZombie = zombieEvent->randomChump();
-    notAllocatedZombie->announce();
-    delete allocatedZombie;
+
+    std::cout << "What is the name of you baby zombie ?" << std::endl;
+    std::getline( std::cin, input );
+    babyZombie = zombieEvent->newZombie( input );
+    babyZombie->announce();
+
+    std::cout << "\n\nNow, a ramdom bastard zombie" << std::endl;
+    randomZombie = zombieEvent->randomChump();
+    randomZombie->announce();
+
+    std::cout << "\n\nNow, I'm gonna kill the zombies..." << std::endl;
+    delete babyZombie;
+    delete randomZombie;
     delete zombieEvent;
+
     return 0;
 }

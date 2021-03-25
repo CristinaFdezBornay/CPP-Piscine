@@ -6,33 +6,32 @@ ZombieEvent::ZombieEvent( void ) {
 }
 
 ZombieEvent::~ZombieEvent( void ) {
-    if ( this->_zombieType )
-        delete this->_zombieType;
     std::cout << "[ ZOMBIE EVENT DIED ]" << std::endl;
     return;
 }
 
-void        ZombieEvent::setZombieType( std::string input ) {
-    this->_zombieType = new std::string(input);
-    std::cout << *(this->getZombieType()) << " set as Zombie Type !" << std::endl;
+void        ZombieEvent::setZombieType( void ) {
+    std::string     input;
+
+    std::cout << "What type of zombie are your zombies ?" << std::endl;
+    std::getline( std::cin, input );
+    this->_zombieType = input;
+    std::cout << this->getZombieType() << " set as Zombie Type !" << std::endl;
     return;
 }
 
-std::string *ZombieEvent::getZombieType( void ) const {
+std::string ZombieEvent::getZombieType( void ) const {
     return this->_zombieType;
 }
 
 Zombie      *ZombieEvent::newZombie( std::string name ) const {
-    Zombie          *zombie;
-
-    zombie = new Zombie(name, *(this->getZombieType()));
+    Zombie          *zombie = new Zombie( name, this->getZombieType() );
     return zombie;
 }
 
 Zombie      *ZombieEvent::randomChump( void ) const {
-    std::string name;
+    Zombie          *zombie;
 
-    Zombie      zombie = Zombie(name, *(this->getZombieType()));
-    zombie.announce();
-    return &zombie;
+    zombie = new Zombie( this->getZombieType() );
+    return zombie;
 }
