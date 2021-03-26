@@ -2,6 +2,7 @@
 # define BRAIN_H
 
 # include <iostream>
+#include <sstream>
 
 class       Brain {
     public:
@@ -13,7 +14,7 @@ class       Brain {
         void            setPercentageGreyMatter( int percentageGreyMatter );
         int             getPercentageGreyMatter( void ) const;
 
-        std::string     identify( void );
+        std::string     identify( void ) const;
     
     private:
         int     _size;

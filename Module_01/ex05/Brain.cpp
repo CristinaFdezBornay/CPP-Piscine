@@ -28,7 +28,11 @@ int             Brain::getPercentageGreyMatter( void ) const {
     return this->_percentageGreyMatter;
 }
 
-std::string     Brain::identify( void ) {
-    std::string *lol = new std::string("lol");
-    return *lol;
+std::string     Brain::identify( void ) const {
+    std::stringstream ss;
+	std::string ret = "0x";
+
+	ss << std::uppercase << std::hex << (unsigned long)this;
+	ret.append(ss.str());
+	return (ret);
 }

@@ -3,18 +3,16 @@
 
 # include "Brain.hpp"
 
-class       Human {
+class       Human : public Brain {
     public:
         Human( void );
         ~Human( void );
 
-        void            setBrain( Brain brain);
-        Brain           &getBrain( void ) const;
-
-        std::string     identify();
+        const Brain     &getBrain( void ) const;
+        std::string     identify( void ) const;
 
     private:
-        const Brain     *_brain;
+        Brain const     _brain;
 };
 
 #endif
