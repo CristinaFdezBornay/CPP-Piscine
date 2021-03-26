@@ -3,7 +3,7 @@
 
 # include "Brain.hpp"
 
-class       Human : public Brain {
+class       Human {
     public:
         Human( void );
         ~Human( void );
