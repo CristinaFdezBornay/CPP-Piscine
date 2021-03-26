@@ -4,8 +4,7 @@ EX = Ex 05
 
 # COMPILER AND FLAGS
 CPP = clang++
-CFLAGS =
-# CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 # RM
 RM = rm -f
