@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 15:30:20 by crfernan          #+#    #+#             */
-/*   Updated: 2021/03/31 16:56:31 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/03/31 17:07:26 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int         Fixed::getRawBits( void ) const {
 }
 
 void        Fixed::setRawBits( int const raw ) {
-    // std::cout << "setRawBits member function called" << std::endl;
     this->_fpv = raw;
     return ;
 }
