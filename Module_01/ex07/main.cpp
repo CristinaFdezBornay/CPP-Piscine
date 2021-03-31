@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 12:59:49 by crfernan          #+#    #+#             */
-/*   Updated: 2021/03/31 15:21:05 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/03/31 15:51:17 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,21 @@ std::string         replace_s1_by_s2( std::string content, std::string s1, std::
 }
 
 int                 replace( std::string filename, std::string s1, std::string s2 ) {
-    std::ifstream   ifs(filename);
+    std::string     line;
     std::string     content;
+    std::ifstream   ifs(filename);
 
     if ( !ifs.is_open() )
         return error("[ Error ] File not found", 1);
-    ifs >> content;
-    content = replace_s1_by_s2( content, s1, s2 );
+    while ( std::getline( ifs, line ) ) {
+        line = replace_s1_by_s2( line, s1, s2 );
+        content += line;
+        content += '\n';
+    }
     ifs.close();
 
     std::ofstream   ofs( get_filename_replace( filename ) );
-    ofs << content << std::endl;
+    ofs << content;
     ofs.close();
     return 0;
 }
