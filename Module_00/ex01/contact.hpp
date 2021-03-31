@@ -6,12 +6,12 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 13:41:26 by crfernan          #+#    #+#             */
-/*   Updated: 2021/03/30 13:41:26 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/03/31 18:00:07 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_H
-# define CONTACT_H
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 # include <iostream>
 

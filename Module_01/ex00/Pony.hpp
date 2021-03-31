@@ -6,12 +6,12 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 13:42:12 by crfernan          #+#    #+#             */
-/*   Updated: 2021/03/30 13:42:14 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/03/31 18:00:07 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PONY_H
-# define PONY_H
+#ifndef PONY_HPP
+# define PONY_HPP
 
 # include <iostream>
 

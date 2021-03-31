@@ -6,12 +6,12 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 13:43:19 by crfernan          #+#    #+#             */
-/*   Updated: 2021/03/30 13:43:19 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/03/31 18:00:07 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMAN_H
-# define HUMAN_H
+#ifndef HUMAN_HPP
+# define HUMAN_HPP
 
 # include "Brain.hpp"
 

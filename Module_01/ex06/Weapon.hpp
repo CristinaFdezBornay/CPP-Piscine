@@ -6,12 +6,12 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 13:43:48 by crfernan          #+#    #+#             */
-/*   Updated: 2021/03/30 13:43:48 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/03/31 18:00:10 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_H
-# define WEAPON_H
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
 # include <iostream>
 
