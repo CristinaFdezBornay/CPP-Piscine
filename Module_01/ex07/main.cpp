@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 12:59:49 by crfernan          #+#    #+#             */
-/*   Updated: 2021/03/31 15:51:17 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/03/31 15:58:41 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,10 @@ std::string         get_filename_replace( std::string filename ) {
 }
 
 std::string         replace_s1_by_s2( std::string content, std::string s1, std::string s2 ) {
-    // std::string     content;
     size_t          s1_size;
     size_t          occurence_s1;
 
     s1_size = s1.size();
-    // std::getline( ifs, content, '\0');
     while ((occurence_s1 = content.find( s1 )) != std::string::npos)
         content.replace( occurence_s1, s1_size, s2 );
     return content;
