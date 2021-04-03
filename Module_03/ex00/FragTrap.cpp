@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 23:29:45 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/04 00:29:19 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/04 00:36:15 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,13 @@ void                FragTrap::meleeAttack( std::string const & target ) {
 
 void                FragTrap::vaulthunter_dot_exe( std::string const & target ) {
     int             cost_of_attacking_randomly = 25;
-    std::string     random_attacks[] = {"lol 1", "lol 2", "lol 3", "lol 4", "lol 5"};
+    std::string     random_attacks[] = {
+        "banana peel",
+        "not funny jokes",
+        "2nd degree opinions",
+        "indifference",
+        "i really do not want to think about random robot attacks sorry"
+    };
 
     if (this->getEnergyPoints() < cost_of_attacking_randomly ) {
         std::cout <<  "🔪 🔪 " << this->getName() <<" cannot attack " << target << " coz they have " << this->getEnergyPoints() << " energy pointss... " << std::endl;
@@ -180,6 +186,7 @@ void                FragTrap::takeDamage( unsigned int amount ) {
 
 void                FragTrap::beRepaired( unsigned int amount ) {
     this->setHitPoints( this->getHitPoints() + amount );
+    this->setEnergyPoints( this->getEnergyPoints() + amount );
     std::cout << "🥰 🥰 " << this->getName() <<" has been repaired [ Hits Points = " << this->getHitPoints() << " ][ Energy Points = " << this->getEnergyPoints() << " ]" <<  std::endl;
     return ;
 }
