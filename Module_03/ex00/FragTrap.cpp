@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 23:29:45 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/04 00:36:15 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/05 14:13:54 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,20 @@ FragTrap &          FragTrap::operator=( FragTrap const & rhs ) {
     this->setRangedAttackDamage(rhs.getRangedAttackDamage());
     this->setArmorDamageReduction(rhs.getArmorDamageReduction());
     return *this;
+}
+
+std::ostream &     operator<<( std::ostream & o, FragTrap const & src ) {
+
+    o << "FRAG TRAP Name         : " << src.getName() << std::endl;
+    o << "Hit Points             : " << src.getHitPoints() << std::endl;
+    o << "Max Hit Points         : " << src.getMaxHitPoints() << std::endl;
+    o << "Energy Points          : " << src.getEnergyPoints() << std::endl;
+    o << "Max Energy Points      : " << src.getMaxEnergyPoints() << std::endl;
+    o << "Level                  : " << src.getLevel() << std::endl;
+    o << "Melee Attack Damage    : " << src.getMeleeAttackDamage() << std::endl;
+    o << "Ranged Attack Damage   : " << src.getRangedAttackDamage() << std::endl;
+    o << "Armor Damage Reduction : " << src.getArmorDamageReduction() << std::endl;
+    return o;
 }
 
 void                FragTrap::rangedAttack( std::string const & target ) {
