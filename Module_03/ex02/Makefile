@@ -6,13 +6,13 @@
 #    By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/30 13:43:42 by crfernan          #+#    #+#              #
-#    Updated: 2021/04/05 19:20:44 by crfernan         ###   ########.fr        #
+#    Updated: 2021/04/05 19:20:57 by crfernan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # INFO PROYECT
 DAY = C++ 03
-EX = Ex 00
+EX = Ex 02
 
 # COMPILER AND FLAGS
 CPP = clang++
@@ -22,13 +22,13 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
 # SOURCES
-SRCS = main.cpp FragTrap.cpp
+SRCS = ClapTrap.cpp FragTrap.cpp ScavTrap.cpp main.cpp
 
 # OBJECTS
 OBJS = $(SRCS:.cpp=.o)
 
 # INCLUDES
-INCL = FragTrap.hpp 
+INCL = FragTrap.hpp ScavTrap.hpp ClappTrap.hpp
 
 # EXECUTABLE
 NAME = RobotsDoingThings

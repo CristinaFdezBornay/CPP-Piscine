@@ -6,7 +6,7 @@
 #    By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/30 13:43:42 by crfernan          #+#    #+#              #
-#    Updated: 2021/04/05 17:14:52 by crfernan         ###   ########.fr        #
+#    Updated: 2021/04/05 19:20:48 by crfernan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ OBJS = $(SRCS:.cpp=.o)
 INCL = FragTrap.hpp ScavTrap.hpp
 
 # EXECUTABLE
-NAME = FragTrap
+NAME = RobotsDoingThings
 
 # RULES
 all:		$(NAME)
