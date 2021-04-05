@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 17:01:59 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/05 19:38:49 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/05 22:56:33 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,7 @@ ScavTrap::~ScavTrap( void ) {
     return ;
 }
 
-ScavTrap::ScavTrap( std::string name ) : ClapTrap( name ) {
-    this->setMaxEnergyPoints( 50 );
-    this->setEnergyPoints( 50 );
-    this->setMeleeAttackDamage( 20 );
-    this->setRangedAttackDamage( 15 );
-    this->setArmorDamageReduction( 3 );
+ScavTrap::ScavTrap( std::string name ) : ClapTrap( name, 1, 100, 100, 50, 50, 20, 15, 3 ) {
     std::cout << "😈 😈 SC4V-TP " << this->getName() << " is ready to figggghhhhttttTTT !!!!!" << std::endl;
     return ;
 }
@@ -45,11 +40,11 @@ void                ScavTrap::challengeNewcomer( std::string const & target ) {
         "touch your nose with your tongue",
         "say \"el peRRo de san Roque no tiene Rabo porque Ramon Ramirez se lo ha cortado\"",
         "move one hand up and down and the other one in circles",
-        "i really do not want to think about random robot challenges sorry"
+        "inability to cook"
     };
 
     if (this->getEnergyPoints() < cost_of_attacking_randomly ) {
-        std::cout <<  "🔪 🔪 SC4V-TP " << this->getName() <<" cannot force " << target << " to " << random_challenges[ rand() % 5 ] << " coz they have " << this->getEnergyPoints() << " energy pointss... " << std::endl;
+        std::cout <<  "🔪 🔪 SC4V-TP " << this->getName() <<" cannot force " << target << " to " << random_challenges[ rand() % 5 ] << " coz she has " << this->getEnergyPoints() << " energy pointss... " << std::endl;
         return ;
     }
     this->setEnergyPoints( this->getEnergyPoints() - cost_of_attacking_randomly );

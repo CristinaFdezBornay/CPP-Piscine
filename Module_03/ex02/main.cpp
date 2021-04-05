@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 23:44:59 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/05 19:58:20 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/05 22:50:29 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,23 +35,32 @@ int                 main( void ) {
     std::cout << std::endl << "====== FIGHTTTTT TIME ======" << std::endl;
     cristina.rangedAttack(elvira.getName());
     elvira.takeDamage(cristina.getRangedAttackDamage());
+    std::cout << std::endl;
     
     elvira.meleeAttack(cristina.getName());
     cristina.takeDamage(elvira.getMeleeAttackDamage());
-    
-    cristina.challengeNewcomer(elvira.getName());
-    
+    std::cout << std::endl;
+     
     elvira.meleeAttack(cristina.getName());
     cristina.takeDamage(elvira.getMeleeAttackDamage());
-    
+    std::cout << std::endl;
+
     cristina.challengeNewcomer(elvira.getName());
+    std::cout << std::endl;
     elvira.vaulthunter_dot_exe(cristina.getName());
+    std::cout << std::endl;
     cristina.challengeNewcomer(elvira.getName());
+    std::cout << std::endl;
     elvira.vaulthunter_dot_exe(cristina.getName());
+    std::cout << std::endl;
     cristina.challengeNewcomer(elvira.getName());
+    std::cout << std::endl;
     elvira.vaulthunter_dot_exe(cristina.getName());
+    std::cout << std::endl;
     cristina.challengeNewcomer(elvira.getName());
+    std::cout << std::endl;
     elvira.vaulthunter_dot_exe(cristina.getName());
+    std::cout << std::endl;
     
     cristina.beRepaired(25);
     elvira.beRepaired(50);

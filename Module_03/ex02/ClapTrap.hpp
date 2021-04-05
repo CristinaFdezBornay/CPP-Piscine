@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 18:48:08 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/05 19:38:18 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/05 22:39:22 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ class       ClapTrap {
     public:
         ClapTrap( void );
         ~ClapTrap( void );
-        ClapTrap( std::string name );
+        ClapTrap( std::string name, int level, int hitPoints, int maxHitPoints,
+            int energyPoints, int maxEnergyPoints, int meleeAttackDamage,
+            int rangedAttackDamage, int armorDamageReduction );
         ClapTrap( ClapTrap const & src );
 
         ClapTrap &          operator=( ClapTrap const & rhs );
