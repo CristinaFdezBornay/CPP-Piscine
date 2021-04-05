@@ -6,12 +6,12 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 18:48:08 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/05 22:39:22 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/05 23:12:53 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_H
-# define CLAPTRAP_H
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 # include <iostream>
 # include <cmath>
