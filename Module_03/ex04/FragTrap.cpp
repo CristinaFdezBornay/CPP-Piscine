@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 23:29:45 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/05 22:55:01 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/07 23:38:24 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ FragTrap::FragTrap( void ) : ClapTrap( ) {
 }
 
 FragTrap::~FragTrap( void ) {
-    std::cout << "💥 💥 FR4G-TP OHH NOOOO " << this->getName() << " DIED..."<< std::endl;
+    std::cout << "💥 💥 FR4G-TP OHH NOOOO " << this->getName() << " DIED..." << std::endl;
     return ;
 }
 

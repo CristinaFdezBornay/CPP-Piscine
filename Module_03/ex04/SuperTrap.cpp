@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 23:50:41 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/07 23:26:30 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/07 23:47:34 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,19 @@ SuperTrap::~SuperTrap( void ) {
     return ;
 }
 
-SuperTrap::SuperTrap( std::string name ) :  FragTrap( name ), NinjaTrap( name ) {
+SuperTrap::SuperTrap( std::string name ) {
+    FragTrap    fragTrap( name );
+    NinjaTrap   ninjaTrap( name );
+
     this->setName( name );
-    this->setHitPoints( this->FragTrap::getHitPoints() );
-    this->setMaxHitPoints( this->FragTrap::getMaxHitPoints() );
-    this->setEnergyPoints( this->NinjaTrap::getEnergyPoints() );
-    this->setMaxEnergyPoints( this->NinjaTrap::getMaxEnergyPoints() );
+    this->setHitPoints( fragTrap.getHitPoints() );
+    this->setMaxHitPoints( fragTrap.getMaxHitPoints() );
+    this->setEnergyPoints( ninjaTrap.getEnergyPoints() );
+    this->setMaxEnergyPoints( ninjaTrap.getMaxEnergyPoints() );
     this->setLevel( 1 );
-    this->setMeleeAttackDamage( this->NinjaTrap::getMeleeAttackDamage() );
-    this->setRangedAttackDamage( this->FragTrap::getRangedAttackDamage() );
-    this->setArmorDamageReduction( this->FragTrap::getArmorDamageReduction() );
+    this->setMeleeAttackDamage( ninjaTrap.getMeleeAttackDamage() );
+    this->setRangedAttackDamage( fragTrap.getRangedAttackDamage() );
+    this->setArmorDamageReduction( fragTrap.getArmorDamageReduction() );
     std::cout << "😈 😈 SUPR-TP " << this->getName() << " is ready to figggghhhhttttTTT !!!!!" << std::endl;
     return ;
 }

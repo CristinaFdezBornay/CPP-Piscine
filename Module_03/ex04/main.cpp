@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 23:44:59 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/06 23:58:38 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/07 23:32:49 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 #include "SuperTrap.hpp"
 
 int                 main( void ) {
-    SuperTrap       lol;
+    SuperTrap       cristina("Cristina");
     // ScavTrap    cristina("Cristina");
     // FragTrap    elvira("Elvira");
     // NinjaTrap   bea("Bea");
 
-    // std::cout << "====== Info per Robot ======" << std::endl;
-    // std::cout << std::endl << "======    CRISTINA    ======" << std::endl;
-    // std::cout << cristina;
+    std::cout << "====== Info per Robot ======" << std::endl;
+    std::cout << std::endl << "======    CRISTINA    ======" << std::endl;
+    std::cout << cristina;
     // std::cout << std::endl << "======     ELVIRA     ======" << std::endl;
     // std::cout << elvira;
     // std::cout << std::endl << "======      BEA       ======" << std::endl;

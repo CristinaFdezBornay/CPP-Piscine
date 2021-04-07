@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 17:01:59 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/05 22:42:43 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/07 23:35:58 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,18 @@ ClapTrap::~ClapTrap( void ) {
     return ;
 }
 
+ClapTrap::ClapTrap( std::string name ) : _name( name ) {
+    std::cout << "😈 😈 A baby CL4P-TP " << this->getName() << " is born by string!!" << std::endl;
+    return ;
+}
+
 ClapTrap::ClapTrap( std::string name, int level, int hitPoints, int maxHitPoints,
     int energyPoints, int maxEnergyPoints, int meleeAttackDamage, int rangedAttackDamage,
     int armorDamageReduction ) : _name( name ), _level( level ), _hitPoints( hitPoints ),
     _maxHitPoints( maxHitPoints ), _energyPoints( energyPoints ), _maxEnergyPoints( maxEnergyPoints ),
     _meleeAttackDamage( meleeAttackDamage ), _rangedAttackDamage( rangedAttackDamage ), 
     _armorDamageReduction( armorDamageReduction ) {
-    std::cout << "😈 😈 A baby CL4P-TP " << this->getName() << " is born by string!!" << std::endl;
+    std::cout << "😈 😈 A baby CL4P-TP " << this->getName() << " is born by initialization list!!" << std::endl;
     return ;
 }
 
