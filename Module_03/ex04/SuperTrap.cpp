@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 23:50:41 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/07 01:06:05 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/07 23:26:30 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ SuperTrap::SuperTrap( std::string name ) :  FragTrap( name ), NinjaTrap( name ) 
     this->setMeleeAttackDamage( this->NinjaTrap::getMeleeAttackDamage() );
     this->setRangedAttackDamage( this->FragTrap::getRangedAttackDamage() );
     this->setArmorDamageReduction( this->FragTrap::getArmorDamageReduction() );
-    std::cout << "😈 😈 SC4V-TP " << this->getName() << " is ready to figggghhhhttttTTT !!!!!" << std::endl;
+    std::cout << "😈 😈 SUPR-TP " << this->getName() << " is ready to figggghhhhttttTTT !!!!!" << std::endl;
     return ;
 }
 
 SuperTrap::SuperTrap( SuperTrap const & src ) : FragTrap( src ), NinjaTrap( src ) {
     *this = src;
-    std::cout << "😈 😈 SC4V-TP " << this->getName() << " has been created by copy and is ready to figggghhhhttttTTT !!!!!" << std::endl;
+    std::cout << "😈 😈 SUPR-TP " << this->getName() << " has been created by copy and is ready to figggghhhhttttTTT !!!!!" << std::endl;
     return ;
 }
