@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 13:41:22 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/12 12:50:25 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/12 12:58:23 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,7 +190,7 @@ int                 Contact::print_general_information() const {
 }
 
 int                 Contact::print_complete_information() const {
-    std::cout << std::endl << "INFORMATION -> ID : " << getIdentifier() + '0' << std::endl;
+    std::cout << std::endl << "INFORMATION -> ID : " << getIdentifier() << std::endl;
     std::cout << "First Name        : " << getFirst_name() << std::endl;
     std::cout << "Last Name         : " << getLast_name() << std::endl;
     std::cout << "Nickname          : " << getNickname() << std::endl;
