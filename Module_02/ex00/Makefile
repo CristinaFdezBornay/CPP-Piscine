@@ -6,7 +6,7 @@
 #    By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/30 13:43:42 by crfernan          #+#    #+#              #
-#    Updated: 2021/03/31 16:48:14 by crfernan         ###   ########.fr        #
+#    Updated: 2021/04/12 22:12:59 by crfernan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ EX = Ex 00
 
 # COMPILER AND FLAGS
 CPP = clang++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # RM
 RM = rm -f
