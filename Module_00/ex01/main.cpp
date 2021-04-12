@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 13:41:29 by crfernan          #+#    #+#             */
-/*   Updated: 2021/03/30 13:41:30 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/12 11:46:19 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,13 @@ int         search_contact(Contact *phonebooooook) {
 int         program(Contact *phonebooooook) {
     std::string     command;
 
-    std::cout << "\n\nEnter a command [ADD, SEARCH, EXIT]:" << std::endl;
+    std::cout << "\n\nEnter a command [ADD(a), SEARCH(s), EXIT(e)]:" << std::endl;
     std::getline (std::cin,command);
-    if (command == "ADD" or command == "1")
+    if (command == "ADD" or command == "a")
         return add_contact(phonebooooook);
-    else if (command == "SEARCH" or command == "2")
+    else if (command == "SEARCH" or command == "s")
         return search_contact(phonebooooook);
-    else if (command == "EXIT" or command == "3")
+    else if (command == "EXIT" or command == "e")
         return 0;
     else {
         std::cout << "\nPlease introduce one of the available commands!\n" << std::endl;
