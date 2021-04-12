@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 13:41:22 by crfernan          #+#    #+#             */
-/*   Updated: 2021/03/30 13:41:23 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/12 12:50:25 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,63 +168,40 @@ int             Contact::Add(){
     return 0;
 }
 
-std::string     Contact::_format_information(std::string information) const {
+std::ostream &      Contact::_format_information(std::ostream & o, std::string information) const {
     int         len = int(information.length());
-    std::string formatted_information = "";
 
-    if (len > 10) {
-        formatted_information.append(information, 0, 9);
-        formatted_information += '.';
-        return formatted_information;
-    }
-    for (int i = 0; i < 10 - len; ++i)
-        formatted_information += ' ';
-    formatted_information.append(information, 0, len);
-    return formatted_information;
+    if (len <= 10)
+        o << std::setfill(' ') << std::setw(10) << information;
+    else
+        o << information.substr(0, 9) << ".";
+    return o;
 }
 
 int                 Contact::print_general_information() const {
-    std::string     general_information = "| ";
+    std::ostream &  o = std::cout;
 
-    general_information += getIdentifier() + '0';
-    general_information += " |";
-    general_information += _format_information(getFirst_name());
-    general_information += "|";
-    general_information += _format_information(getLast_name());
-    general_information += "|";
-    general_information += _format_information(getNickname());
-    general_information += "|";
-    std::cout << general_information << std::endl;
+    o << "| " << getIdentifier() << " |" ;
+    _format_information(o, getFirst_name()) << "|";
+    _format_information(o, getLast_name()) << "|";
+    _format_information(o, getNickname()) << "|";
+    o << std::endl;
     return 0;
 }
 
 int                 Contact::print_complete_information() const {
-    std::string     complete_information = "\nINFORMATION -> ID : ";
-
-    complete_information += getIdentifier() + '0';
-    complete_information += "\nFirst Name        : ";
-    complete_information += getFirst_name();
-    complete_information += "\nLast Name         : ";
-    complete_information += getLast_name();
-    complete_information += "\nNickname          : ";
-    complete_information += getNickname();
-    complete_information += "\nLogin             : ";
-    complete_information += getLogin();
-    complete_information += "\nPostal Address    : ";
-    complete_information += getPostal_adress();
-    complete_information += "\nEmail Address     : ";
-    complete_information += getEmail_adress();
-    complete_information += "\nPhone number      : ";
-    complete_information += getPhone_number();
-    complete_information += "\nBirthdate         : ";
-    complete_information += getBirthday_date();
-    complete_information += "\nFavourite meal    : ";
-    complete_information += getFav_meal();
-    complete_information += "\nUnderwear color   : ";
-    complete_information += getUnderwear_color();
-    complete_information += "\nDarkest Secret    : ";
-    complete_information += getDarkest_secret();
-    std::cout << complete_information << std::endl;
+    std::cout << std::endl << "INFORMATION -> ID : " << getIdentifier() + '0' << std::endl;
+    std::cout << "First Name        : " << getFirst_name() << std::endl;
+    std::cout << "Last Name         : " << getLast_name() << std::endl;
+    std::cout << "Nickname          : " << getNickname() << std::endl;
+    std::cout << "Login             : " << getLogin() << std::endl;
+    std::cout << "Postal Address    : " << getPostal_adress() << std::endl;
+    std::cout << "Email Address     : " << getEmail_adress() << std::endl;
+    std::cout << "Phone number      : " << getPhone_number() << std::endl;
+    std::cout << "Birthdate         : " << getBirthday_date() << std::endl;
+    std::cout << "Favourite meal    : " << getFav_meal() << std::endl;
+    std::cout << "Underwear color   : " << getUnderwear_color() << std::endl;
+    std::cout << "Darkest Secret    : " << getDarkest_secret() << std::endl;
     return 0;
 }
 

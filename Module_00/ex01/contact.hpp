@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 13:41:26 by crfernan          #+#    #+#             */
-/*   Updated: 2021/03/31 18:00:07 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/12 12:23:49 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CONTACT_HPP
 
 # include <iostream>
+# include <iomanip>
 
 class       Contact{
 
@@ -62,7 +63,8 @@ class       Contact{
         std::string _fav_meal;
         std::string _underwear_color;
         std::string _darkest_secret;
-        std::string _format_information(std::string information) const;
+        std::ostream & _format_information(std::ostream & o, std::string information) const;
+
 
         static int  _number_contacts;
 };
