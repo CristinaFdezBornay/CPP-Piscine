@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 15:30:20 by crfernan          #+#    #+#             */
-/*   Updated: 2021/03/31 18:12:52 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/13 23:45:33 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ Fixed::~Fixed( void ) {
 
 Fixed::Fixed( const int nbr ) {
     std::cout << "Int constructor called" << std::endl;
-    this->setRawBits( ( nbr << Fixed::_nbrFractBits ) );
+    this->setRawBits( nbr * ( 1 << Fixed::_nbrFractBits ) );
     return ;
 }
 
-Fixed::Fixed( const float nbr ) : _fpv( int(nbr) ) {
+Fixed::Fixed( const float nbr ) {
     std::cout << "Float constructor called" << std::endl;
     this->setRawBits( roundf( nbr * ( 1 << Fixed::_nbrFractBits ) ) );
     return ;
