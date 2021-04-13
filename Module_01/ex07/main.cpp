@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 12:59:49 by crfernan          #+#    #+#             */
-/*   Updated: 2021/03/31 15:58:41 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/13 16:58:05 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int                 error( std::string error_message, int return_value ) {
 
 int                 check_errors_input( int argc, char **argv ) {
     if ( argc != 4 )
-        return error( "[ Error ] Please, introduce just 3 arguments", 1 );
+        return error( "[ Error ] Please, introduce 3 arguments", 1 );
     if ( argv[1][0] == 0 or argv[2][0] == 0 or argv[3][0] == 0 )
         return error("[ Error ] Input cannot be empty.", 1);
     return 0;

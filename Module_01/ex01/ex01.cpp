@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 13:42:20 by crfernan          #+#    #+#             */
-/*   Updated: 2021/03/30 13:42:21 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/13 15:53:56 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,12 @@ void        memoryLeak( void ) {
 
     std::cout << *panther << std::endl;
     delete panther;
-    return;
+    return ;
 }
+
+// void        memoryLeak( void ) {
+//     std::string         panther("String panther");
+
+//     std::cout << panther << std::endl;
+//     return ;
+// }

@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 13:43:29 by crfernan          #+#    #+#             */
-/*   Updated: 2021/03/30 13:43:30 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/13 16:32:58 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ std::string     HumanA::getName( void ) const {
     return this->_name;
 }
 
-Weapon          HumanA::getWeapon( void ) const {
+Weapon          &HumanA::getWeapon( void ) const {
     return this->_weapon;
 }
 

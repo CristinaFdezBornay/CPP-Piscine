@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 13:41:37 by crfernan          #+#    #+#             */
-/*   Updated: 2021/03/30 13:41:37 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/13 15:17:33 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@ int     doSomeFunnyStuff(Pony *pony) {
     std::string     action;
     std::string     km;
 
-    std::cout << "\nWhat do you want your baby pony " << pony->getName() << " to do [RUN, EAT, DIE]:" << std::endl;
+    std::cout << "\nWhat do you want your baby pony " << pony->getName() << " to do [RUN(r), EAT(e), DIE(d)]:" << std::endl;
     std::getline (std::cin,action);
-    if (action == "RUN" or action == "1") {
+    if (action == "RUN" or action == "r") {
         std::cout << "How many km is " << pony->getName() << " going to run ?" << std::endl;
         std::getline (std::cin,km);
         pony->run(km);
         return doSomeFunnyStuff( pony );
     }
-    else if (action == "EAT" or action == "2") {
+    else if (action == "EAT" or action == "e") {
         pony->eat_carrots();
         return doSomeFunnyStuff( pony );
     }
-    else if (action == "EXIT" or action == "3")
+    else if (action == "DIE" or action == "d")
         return 0;
     else {
         std::cout << "\nPlease introduce one of the available actions!\n" << std::endl;

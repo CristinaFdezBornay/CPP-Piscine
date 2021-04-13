@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/03/30 13:41:46 by crfernan          #+#    #+#              #
-#    Updated: 2021/04/13 15:50:14 by crfernan         ###   ########.fr        #
+#    Created: 2021/03/30 13:42:55 by crfernan          #+#    #+#              #
+#    Updated: 2021/04/13 16:19:44 by crfernan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # INFO PROYECT
 DAY = C++ 01
-EX = Ex 00
+EX = Ex 04
 
 # COMPILER AND FLAGS
 CPP = clang++
@@ -22,16 +22,13 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
 # SOURCES
-SRCS = main.cpp Pony.cpp
+SRCS = ex04.cpp
 
 # OBJECTS
 OBJS = $(SRCS:.cpp=.o)
 
-# INCLUDES
-INCL = Pony.hpp
-
 # EXECUTABLE
-NAME = pooonniiiieeeesssssSS
+NAME = hiiihiii
 
 # RULES
 all:		$(NAME)

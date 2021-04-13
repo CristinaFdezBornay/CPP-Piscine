@@ -6,13 +6,13 @@
 #    By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/30 13:41:46 by crfernan          #+#    #+#              #
-#    Updated: 2021/04/13 15:50:14 by crfernan         ###   ########.fr        #
+#    Updated: 2021/04/13 15:54:56 by crfernan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # INFO PROYECT
 DAY = C++ 01
-EX = Ex 00
+EX = Ex 01
 
 # COMPILER AND FLAGS
 CPP = clang++
@@ -22,16 +22,13 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
 # SOURCES
-SRCS = main.cpp Pony.cpp
+SRCS = main.cpp ex01.cpp
 
 # OBJECTS
 OBJS = $(SRCS:.cpp=.o)
 
-# INCLUDES
-INCL = Pony.hpp
-
 # EXECUTABLE
-NAME = pooonniiiieeeesssssSS
+NAME = memoryLeak
 
 # RULES
 all:		$(NAME)

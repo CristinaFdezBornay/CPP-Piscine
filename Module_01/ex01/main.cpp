@@ -5,19 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/30 13:42:47 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/13 16:17:10 by crfernan         ###   ########.fr       */
+/*   Created: 2021/04/13 15:45:17 by crfernan          #+#    #+#             */
+/*   Updated: 2021/04/13 15:49:10 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ZombieHorde.hpp"
+void        memoryLeak( void );
 
 int     main( void ) {
-    ZombieHorde     *zombieHorde;
-
-    zombieHorde = new ZombieHorde(33);
-    zombieHorde->announce();
-
-    delete zombieHorde;
+    memoryLeak();
     return 0;
 }
