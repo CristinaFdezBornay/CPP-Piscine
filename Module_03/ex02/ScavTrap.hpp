@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 14:22:55 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/05 23:12:45 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/16 10:32:17 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ class       ScavTrap : public ClapTrap {
         ~ScavTrap( void );
         ScavTrap( std::string name );
         ScavTrap( ScavTrap const & src );
+
+        void                rangedAttack( std::string const & target );
+        void                meleeAttack( std::string const & target );
 
         void                challengeNewcomer( std::string const & target );
 };

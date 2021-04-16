@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 23:44:59 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/05 22:50:29 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/16 10:57:36 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "ClapTrap.hpp"
 
 int                 main( void ) {
+    std::cout << std::endl << "====== Creating robots ======" << std::endl << std::endl;
     ScavTrap cristina("Cristina");
     FragTrap elvira("Elvira");
     ClapTrap randomRobot1;
@@ -26,23 +27,23 @@ int                 main( void ) {
     std::cout << elvira;
     std::cout << std::endl << "====== RANDOM ROBOT 1 ======" << std::endl;
     std::cout << randomRobot1;
+    std::cout << std::endl;
     randomRobot1 = elvira;
     std::cout << randomRobot1;
-    std::cout << std::endl << "====== RANDOM ROBOT 2 ======" << std::endl;
-    ScavTrap randomRobot2(cristina);
-    std::cout << randomRobot2;
 
     std::cout << std::endl << "====== FIGHTTTTT TIME ======" << std::endl;
     cristina.rangedAttack(elvira.getName());
     elvira.takeDamage(cristina.getRangedAttackDamage());
     std::cout << std::endl;
-    
+    elvira.rangedAttack(cristina.getName());
+    cristina.takeDamage(elvira.getRangedAttackDamage());
+    std::cout << std::endl;
+
     elvira.meleeAttack(cristina.getName());
     cristina.takeDamage(elvira.getMeleeAttackDamage());
     std::cout << std::endl;
-     
-    elvira.meleeAttack(cristina.getName());
-    cristina.takeDamage(elvira.getMeleeAttackDamage());
+    cristina.meleeAttack(elvira.getName());
+    elvira.takeDamage(cristina.getMeleeAttackDamage());
     std::cout << std::endl;
 
     cristina.challengeNewcomer(elvira.getName());
