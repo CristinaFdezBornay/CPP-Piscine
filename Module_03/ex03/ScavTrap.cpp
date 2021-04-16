@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 17:01:59 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/05 22:56:33 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/16 10:32:03 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,16 @@ ScavTrap::ScavTrap( std::string name ) : ClapTrap( name, 1, 100, 100, 50, 50, 20
 ScavTrap::ScavTrap( ScavTrap const & src ) : ClapTrap( src ) {
     *this = src;
     std::cout << "😈 😈 SC4V-TP " << this->getName() << " has been created by copy and is ready to figggghhhhttttTTT !!!!!" << std::endl;
+    return ;
+}
+
+void                ScavTrap::rangedAttack( std::string const & target ) {
+    ClapTrap::rangedAttack( target,"SC4V-TP" );
+    return ;
+}
+
+void                ScavTrap::meleeAttack( std::string const & target ) {
+    ClapTrap::meleeAttack( target,"SC4V-TP" );
     return ;
 }
 

@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 18:48:08 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/05 23:12:29 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/16 16:30:20 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,12 @@ class       ClapTrap {
     public:
         ClapTrap( void );
         ~ClapTrap( void );
-        ClapTrap( std::string name, int level, int hitPoints, int maxHitPoints,
-            int energyPoints, int maxEnergyPoints, int meleeAttackDamage,
-            int rangedAttackDamage, int armorDamageReduction );
         ClapTrap( ClapTrap const & src );
 
         ClapTrap &          operator=( ClapTrap const & rhs );
 
-        void                rangedAttack( std::string const & target );
-        void                meleeAttack( std::string const & target );
+        void                rangedAttack( std::string const & target, std::string type );
+        void                meleeAttack( std::string const & target, std::string type );
         void                takeDamage( unsigned int amount );
         void                beRepaired( unsigned int amount );
 
@@ -51,6 +48,11 @@ class       ClapTrap {
         int                 getMeleeAttackDamage( void ) const;
         int                 getRangedAttackDamage( void ) const;
         int                 getArmorDamageReduction( void ) const;
+
+    protected:
+        ClapTrap( std::string name, int level, int hitPoints, int maxHitPoints,
+            int energyPoints, int maxEnergyPoints, int meleeAttackDamage,
+            int rangedAttackDamage, int armorDamageReduction );
 
     private:
         std::string         _name;

@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 23:29:45 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/05 22:55:01 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/16 10:30:27 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,16 @@ FragTrap::FragTrap( std::string name ) : ClapTrap( name, 1, 100, 100, 100, 100, 
 FragTrap::FragTrap( FragTrap const & src ) : ClapTrap( src ) {
     *this = src;
     std::cout << "😈 😈 FR4G-TP " << this->getName() << " has been created by copy and is ready to figggghhhhttttTTT !!!!!" << std::endl;
+    return ;
+}
+
+void                FragTrap::rangedAttack( std::string const & target ) {
+    ClapTrap::rangedAttack( target,"FR4G-TP" );
+    return ;
+}
+
+void                FragTrap::meleeAttack( std::string const & target ) {
+    ClapTrap::meleeAttack( target,"FR4G-TP" );
     return ;
 }
 

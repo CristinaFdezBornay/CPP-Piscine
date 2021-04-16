@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 17:01:59 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/05 22:42:43 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/16 10:23:18 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,6 @@ ClapTrap &          ClapTrap::operator=( ClapTrap const & rhs ) {
 }
 
 std::ostream &     operator<<( std::ostream & o, ClapTrap const & src ) {
-
     o << "CL4P-TP Name           : " << src.getName() << std::endl;
     o << "Hit Points             : " << src.getHitPoints() << std::endl;
     o << "Max Hit Points         : " << src.getMaxHitPoints() << std::endl;
@@ -156,13 +155,13 @@ std::ostream &     operator<<( std::ostream & o, ClapTrap const & src ) {
     return o;
 }
 
-void                ClapTrap::rangedAttack( std::string const & target ) {
-    std::cout << "🧨 🧨 CL4P-TP " << this->getName() <<" attacks " << target << " at range, causing " << this->getRangedAttackDamage() << " points of damage!" << std::endl;
+void                ClapTrap::rangedAttack( std::string const & target, std::string type ) {
+    std::cout << "🧨 🧨 " << type << " " << this->getName() <<" attacks " << target << " at range, causing " << this->getRangedAttackDamage() << " points of damage!" << std::endl;
     return ;
 }
 
-void                ClapTrap::meleeAttack( std::string const & target ) {
-    std::cout <<  "💣 💣 CL4P-TP " << this->getName() <<" attacks " << target << " at melee, causing " << this->getMeleeAttackDamage() << " points of damage!" << std::endl;
+void                ClapTrap::meleeAttack( std::string const & target, std::string type  ) {
+    std::cout <<  "💣 💣 " << type << " " << this->getName() <<" attacks " << target << " at melee, causing " << this->getMeleeAttackDamage() << " points of damage!" << std::endl;
     return ;
 }
 
