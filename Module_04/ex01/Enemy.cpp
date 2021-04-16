@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 23:22:32 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/10 23:46:50 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/12 16:42:25 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ Enemy &         Enemy::operator=( Enemy const & rhs ) {
     this->setHitPoints( rhs.getHitPoints() );
     return *this;
 }
-
 
 void            Enemy::takeDamage( int damage ) {
     if ( damage <= 0 )

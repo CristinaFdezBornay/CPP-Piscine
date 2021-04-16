@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 00:23:55 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/11 00:43:23 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/12 17:36:56 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include "AWeapon.hpp"
+#include "Enemy.hpp"
 
 class       Character {
     public:
@@ -23,18 +24,24 @@ class       Character {
 
         void            setName( std::string input );
         void            setActionPoints( int input );
+        void            setWeapon( AWeapon *input );
         std::string     getName( void ) const;
         int             getActionPoints( void ) const;
+        AWeapon         *getWeapon( void ) const;
 
         void            recoverAP( void );
         void            equip( AWeapon *weapon );
         void            attack( Enemy *enemy );
 
+        // Character &     operator=( Character const & rhs );
+
     private:
         Character( void );
         std::string     _name;
         int             _actionPoints;
-        AWeapon         *wepon;
+        AWeapon         *_weapon;
 };
+
+std::ostream &     operator<<( std::ostream & o, Character const & src );
 
 #endif
