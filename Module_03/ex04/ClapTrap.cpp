@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 17:01:59 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/07 23:35:58 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/16 17:13:07 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,13 @@ ClapTrap::~ClapTrap( void ) {
     return ;
 }
 
-ClapTrap::ClapTrap( std::string name ) : _name( name ) {
-    std::cout << "😈 😈 A baby CL4P-TP " << this->getName() << " is born by string!!" << std::endl;
-    return ;
-}
-
 ClapTrap::ClapTrap( std::string name, int level, int hitPoints, int maxHitPoints,
     int energyPoints, int maxEnergyPoints, int meleeAttackDamage, int rangedAttackDamage,
     int armorDamageReduction ) : _name( name ), _level( level ), _hitPoints( hitPoints ),
     _maxHitPoints( maxHitPoints ), _energyPoints( energyPoints ), _maxEnergyPoints( maxEnergyPoints ),
     _meleeAttackDamage( meleeAttackDamage ), _rangedAttackDamage( rangedAttackDamage ), 
     _armorDamageReduction( armorDamageReduction ) {
-    std::cout << "😈 😈 A baby CL4P-TP " << this->getName() << " is born by initialization list!!" << std::endl;
+    std::cout << "😈 😈 A baby CL4P-TP " << this->getName() << " is born by string!!" << std::endl;
     return ;
 }
 
@@ -148,7 +143,6 @@ ClapTrap &          ClapTrap::operator=( ClapTrap const & rhs ) {
 }
 
 std::ostream &     operator<<( std::ostream & o, ClapTrap const & src ) {
-
     o << "CL4P-TP Name           : " << src.getName() << std::endl;
     o << "Hit Points             : " << src.getHitPoints() << std::endl;
     o << "Max Hit Points         : " << src.getMaxHitPoints() << std::endl;
@@ -161,13 +155,13 @@ std::ostream &     operator<<( std::ostream & o, ClapTrap const & src ) {
     return o;
 }
 
-void                ClapTrap::rangedAttack( std::string const & target ) {
-    std::cout << "🧨 🧨 CL4P-TP " << this->getName() <<" attacks " << target << " at range, causing " << this->getRangedAttackDamage() << " points of damage!" << std::endl;
+void                ClapTrap::rangedAttack( std::string const & target, std::string type ) {
+    std::cout << "🧨 🧨 " << type << " " << this->getName() <<" attacks " << target << " at range, causing " << this->getRangedAttackDamage() << " points of damage!" << std::endl;
     return ;
 }
 
-void                ClapTrap::meleeAttack( std::string const & target ) {
-    std::cout <<  "💣 💣 CL4P-TP " << this->getName() <<" attacks " << target << " at melee, causing " << this->getMeleeAttackDamage() << " points of damage!" << std::endl;
+void                ClapTrap::meleeAttack( std::string const & target, std::string type  ) {
+    std::cout <<  "💣 💣 " << type << " " << this->getName() <<" attacks " << target << " at melee, causing " << this->getMeleeAttackDamage() << " points of damage!" << std::endl;
     return ;
 }
 

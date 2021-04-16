@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 23:12:14 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/07 00:40:19 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/16 16:31:10 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,15 @@
 # include "ScavTrap.hpp"
 # include "FragTrap.hpp"
 
-class       NinjaTrap : virtual public ClapTrap{
+class       NinjaTrap : virtual public ClapTrap {
      public:
         NinjaTrap( void );
         ~NinjaTrap( void );
         NinjaTrap( std::string name );
         NinjaTrap( NinjaTrap const & src );
+
+        void                rangedAttack( std::string const & target );
+        void                meleeAttack( std::string const & target );
 
         void                ninjaShoebox( ClapTrap const & src );
         void                ninjaShoebox( FragTrap const & src );

@@ -6,12 +6,11 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 23:50:41 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/07 23:47:34 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/16 17:30:32 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "SuperTrap.hpp"
-
 
 SuperTrap::SuperTrap( void ) : ClapTrap( ), FragTrap( ), NinjaTrap( ) {
     std::cout << "SUPR-TP Default constructor" << std::endl;
@@ -23,15 +22,14 @@ SuperTrap::~SuperTrap( void ) {
     return ;
 }
 
-SuperTrap::SuperTrap( std::string name ) {
+SuperTrap::SuperTrap( std::string name ) : ClapTrap( ), FragTrap( name ), NinjaTrap( name ) {
     FragTrap    fragTrap( name );
     NinjaTrap   ninjaTrap( name );
 
-    this->setName( name );
-    this->setHitPoints( fragTrap.getHitPoints() );
     this->setMaxHitPoints( fragTrap.getMaxHitPoints() );
-    this->setEnergyPoints( ninjaTrap.getEnergyPoints() );
+    this->setHitPoints( fragTrap.getHitPoints() );
     this->setMaxEnergyPoints( ninjaTrap.getMaxEnergyPoints() );
+    this->setEnergyPoints( ninjaTrap.getEnergyPoints() );
     this->setLevel( 1 );
     this->setMeleeAttackDamage( ninjaTrap.getMeleeAttackDamage() );
     this->setRangedAttackDamage( fragTrap.getRangedAttackDamage() );
@@ -43,5 +41,15 @@ SuperTrap::SuperTrap( std::string name ) {
 SuperTrap::SuperTrap( SuperTrap const & src ) : FragTrap( src ), NinjaTrap( src ) {
     *this = src;
     std::cout << "😈 😈 SUPR-TP " << this->getName() << " has been created by copy and is ready to figggghhhhttttTTT !!!!!" << std::endl;
+    return ;
+}
+
+void                SuperTrap::rangedAttack( std::string const & target ) {
+    FragTrap::rangedAttack( target );
+    return ;
+}
+
+void                SuperTrap::meleeAttack( std::string const & target ) {
+    NinjaTrap::meleeAttack( target );
     return ;
 }

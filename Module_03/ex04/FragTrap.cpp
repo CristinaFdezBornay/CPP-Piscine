@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 23:29:45 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/07 23:38:24 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/16 16:56:19 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,20 @@ FragTrap::FragTrap( void ) : ClapTrap( ) {
 }
 
 FragTrap::~FragTrap( void ) {
-    std::cout << "💥 💥 FR4G-TP OHH NOOOO " << this->getName() << " DIED..." << std::endl;
+    std::cout << "💥 💥 FR4G-TP OHH NOOOO " << this->getName() << " DIED..."<< std::endl;
     return ;
 }
 
-FragTrap::FragTrap( std::string name ) : ClapTrap( name, 1, 100, 100, 100, 100, 30, 20, 5 ){
+FragTrap::FragTrap( std::string name ) {
+    this->setName( name );
+    this->setLevel( 1 );
+    this->setMaxHitPoints( 100 );
+    this->setHitPoints( 100 );
+    this->setMaxEnergyPoints( 100 );
+    this->setEnergyPoints( 100 );
+    this->setMeleeAttackDamage( 30 );
+    this->setRangedAttackDamage( 20 );
+    this->setArmorDamageReduction( 5 );
     std::cout << "😈 😈 FR4G-TP " << this->getName() << " is ready to figggghhhhttttTTT !!!!!" << std::endl;
     return ;
 }
@@ -30,6 +39,16 @@ FragTrap::FragTrap( std::string name ) : ClapTrap( name, 1, 100, 100, 100, 100, 
 FragTrap::FragTrap( FragTrap const & src ) : ClapTrap( src ) {
     *this = src;
     std::cout << "😈 😈 FR4G-TP " << this->getName() << " has been created by copy and is ready to figggghhhhttttTTT !!!!!" << std::endl;
+    return ;
+}
+
+void                FragTrap::rangedAttack( std::string const & target ) {
+    ClapTrap::rangedAttack( target,"FR4G-TP" );
+    return ;
+}
+
+void                FragTrap::meleeAttack( std::string const & target ) {
+    ClapTrap::meleeAttack( target,"FR4G-TP" );
     return ;
 }
 
