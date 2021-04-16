@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 17:01:59 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/05 17:14:33 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/16 16:56:33 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,7 +147,6 @@ ScavTrap &          ScavTrap::operator=( ScavTrap const & rhs ) {
 }
 
 std::ostream &     operator<<( std::ostream & o, ScavTrap const & src ) {
-
     o << "SC4V-TP Name           : " << src.getName() << std::endl;
     o << "Hit Points             : " << src.getHitPoints() << std::endl;
     o << "Max Hit Points         : " << src.getMaxHitPoints() << std::endl;
@@ -177,7 +176,7 @@ void                ScavTrap::challengeNewcomer( std::string const & target ) {
         "touch your nose with your tongue",
         "say \"el peRRo de san Roque no tiene Rabo porque Ramon Ramirez se lo ha cortado\"",
         "move one hand up and down and the other one in circles",
-        "i really do not want to think about random robot challenges sorry"
+        "inability to cook"
     };
 
     if (this->getEnergyPoints() < cost_of_attacking_randomly ) {

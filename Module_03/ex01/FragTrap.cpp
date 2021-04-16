@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 23:29:45 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/05 17:06:16 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/16 16:14:11 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,7 +177,7 @@ void                FragTrap::vaulthunter_dot_exe( std::string const & target ) 
         "not funny jokes",
         "2nd degree opinions",
         "indifference",
-        "i really do not want to think about random robot attacks sorry"
+        "incredibly amount of coats"
     };
 
     if (this->getEnergyPoints() < cost_of_attacking_randomly ) {
