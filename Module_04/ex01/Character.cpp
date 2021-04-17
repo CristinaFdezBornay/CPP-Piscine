@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 00:30:03 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/12 17:37:15 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/17 23:22:58 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,26 +58,20 @@ void            Character::recoverAP( void ) {
     return ;
 }
 void            Character::equip( AWeapon *weapon ) {
-    // if ( this->getActionPoints() - weapon->getAPCost() < 0 )
-        // return ;
     this->setWeapon( weapon );
-    std::cout << this->getWeapon() << std::endl;
-    // this->setActionPoints( this->getActionPoints() - weapon->getAPCost() );
     return ;
 }
 void            Character::attack( Enemy *enemy ) {
-    if ( !this->getWeapon() or this->getActionPoints() < 0 )
+    if ( !this->getWeapon() or this->getActionPoints() <= 0 )
         return ;
     std::cout << this->getName() << " attacks " << enemy->getType() << " with a " << this->getWeapon()->getName() << std::endl;
     this->getWeapon()->attack();
+    this->setActionPoints( this->getActionPoints() - this->getWeapon()->getAPCost() );
     enemy->takeDamage( this->getWeapon()->getDamage() );
     if ( enemy->getHitPoints() < 0 )
-        std::cout << "ENEMY DELETE -> not implemented" << std::endl;
-        // delete enemy;
+        enemy->~Enemy();
     return ;
 }
-
-// Character &     operator=( Character const & rhs );
 
 std::ostream &     operator<<( std::ostream & o, Character const & src ) {
     if ( !src.getWeapon() )

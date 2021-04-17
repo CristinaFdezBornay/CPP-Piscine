@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 23:57:56 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/11 00:04:50 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/17 22:54:34 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,6 @@ SuperMutant::~SuperMutant( void ) {
 }
 
 void    SuperMutant::takeDamage( int damage ) {
-    int total_damage = damage - 3;
-
-    if ( damage <= 0 )
-        return ;
-    this->setHitPoints( this->getHitPoints() - total_damage );
+    Enemy::takeDamage( damage - 3 );
     return ;
 }

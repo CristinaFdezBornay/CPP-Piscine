@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 23:43:42 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/09 00:56:22 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/17 22:47:07 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@
 
 class AWeapon {
     public:
-        AWeapon( void );
         AWeapon( std::string const & name, int apcost, int damage );
         AWeapon( AWeapon const & rhs );
-        ~AWeapon( void );
+        virtual ~AWeapon( void );
 
         void            setName( std::string input );
         void            setAPCost( int input );
@@ -34,6 +33,7 @@ class AWeapon {
         virtual void    attack( void ) const = 0;
     
     private:
+        AWeapon( void );
         std::string     _name;
         int             _apCost;
         int             _damage;

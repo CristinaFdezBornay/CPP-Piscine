@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 23:58:16 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/09 00:59:29 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/17 22:45:39 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,7 @@ AWeapon::AWeapon( void ) {
     return ;
 }
 
-AWeapon::AWeapon( std::string const & name, int apcost, int damage ) {
-    this->setName(name);
-    this->setAPCost(apcost);
-    this->setDamage(damage);
+AWeapon::AWeapon( std::string const & name, int apcost, int damage ) : _name( name ), _apCost( apcost ), _damage( damage ) {
     return ;
 }
 

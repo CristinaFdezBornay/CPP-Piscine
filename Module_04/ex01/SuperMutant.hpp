@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 22:51:04 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/11 00:11:37 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/17 22:55:56 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class       SuperMutant : public Enemy {
         SuperMutant( void );
         ~SuperMutant( void );
 
-        virtual void    takeDamage( int damage );
+        void    takeDamage( int damage );
 };
 
 #endif

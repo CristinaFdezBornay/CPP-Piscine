@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 22:51:04 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/10 23:44:46 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/17 23:05:22 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class       Enemy {
     public:
         Enemy( int hp, std::string const & type );
         Enemy( Enemy const & rhs );
-        ~Enemy( void );
+        virtual ~Enemy( void );
 
         void            setType( std::string input );
         void            setHitPoints( int input );
