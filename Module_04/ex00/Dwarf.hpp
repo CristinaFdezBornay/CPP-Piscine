@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.cpp                                           :+:      :+:    :+:   */
+/*   Dwarf.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/08 22:46:14 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/17 22:12:04 by crfernan         ###   ########.fr       */
+/*   Created: 2021/04/08 22:42:05 by crfernan          #+#    #+#             */
+/*   Updated: 2021/04/17 22:15:31 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Peon.hpp"
+#ifndef DWARF_HPP
+# define DWARF_HPP
 
-Peon::~Peon( void ) {
-    std::cout << "Bleuark..." << std::endl;
-    return ;
-}
+# include <iostream>
+# include "Victim.hpp"
 
-Peon::Peon( std::string name ) : Victim( name ) {
-    std::cout << "Zog zog." << std::endl;
-    return ;
-}
+class       Dwarf : public Victim {
+    public:
+        ~Dwarf( void );
+        Dwarf( std::string name );
 
-void            Peon::getPolymorphed( void ) const {
-    std::cout << this->getName() << " has been turned into a pink pony !" << std::endl;
-    return ;
-}
+        virtual void    getPolymorphed( void ) const;
+
+    private:
+        std::string     _name;
+};
+
+#endif

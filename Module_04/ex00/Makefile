@@ -6,7 +6,7 @@
 #    By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/30 13:43:42 by crfernan          #+#    #+#              #
-#    Updated: 2021/04/12 22:12:59 by crfernan         ###   ########.fr        #
+#    Updated: 2021/04/17 22:20:08 by crfernan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,13 +22,13 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
 # SOURCES
-SRCS = main.cpp Sorcerer.cpp Victim.cpp Peon.cpp
+SRCS = main.cpp Sorcerer.cpp Victim.cpp Peon.cpp Dwarf.cpp
 
 # OBJECTS
 OBJS = $(SRCS:.cpp=.o)
 
 # INCLUDES
-INCL = Sorcerer.hpp Victim.hpp Peon.hpp
+INCL = Sorcerer.hpp Victim.hpp Peon.hpp Dwarf.hpp
 
 # EXECUTABLE
 NAME = Polymorphhhhhhh
