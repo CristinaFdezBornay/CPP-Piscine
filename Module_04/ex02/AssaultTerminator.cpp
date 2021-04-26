@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 18:28:32 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/23 00:31:01 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/26 18:41:00 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ AssaultTerminator::~AssaultTerminator( void ) {
     return ;
 }
 
-AssaultTerminator::AssaultTerminator( AssaultTerminator const & rhs ) {
+AssaultTerminator::AssaultTerminator( AssaultTerminator const &rhs ) {
     *this = rhs;
     return ;
 }
@@ -50,7 +50,5 @@ void            AssaultTerminator::meleeAttack( void ) const  {
 AssaultTerminator &     AssaultTerminator::operator=( AssaultTerminator const & rhs ) {
     if ( this == &rhs ) 
         return *this;
-    // this->setType( rhs.getType() );
-    // this->setHitPoints( rhs.getHitPoints() );
     return *this;
 }

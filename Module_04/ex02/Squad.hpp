@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 23:16:18 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/23 00:44:43 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/26 19:26:47 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ class       Squad : public ISquad {
         Squad( Squad const & rhs );
 
         void                    setCount( int input );
+        void                    setMarines( ISpaceMarine** input );
         int                     getCount( void ) const;
+        ISpaceMarine**          getMarines( void ) const;
         ISpaceMarine*           getUnit( int index ) const;
         int                     push( ISpaceMarine *src );
 
@@ -31,6 +33,7 @@ class       Squad : public ISquad {
 
     private:
         static int              _count;
+        ISpaceMarine**          _marines;
 };
 
 #endif
