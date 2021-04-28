@@ -6,13 +6,13 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 20:02:47 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/26 20:05:06 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/29 00:20:53 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-~Ice( void ) {
+Ice::~Ice( void ) {
     return ;
 }
 
@@ -22,7 +22,7 @@ Ice*    Ice::clone( void ) const {
 }
 
 void    Ice::use( ICharacter& target ) {
-    std::cout << "* shoots an ice bolt at " << target->getName() << " *" << std::endl;
-    AMateria::use( target );
+    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+    // AMateria::use( target );
     return ;
 }

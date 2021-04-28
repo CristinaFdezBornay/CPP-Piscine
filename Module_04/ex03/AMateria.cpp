@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 19:51:19 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/26 20:07:27 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/28 23:11:11 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ AMateria::AMateria( std::string const & type ) {
 }
 
 AMateria::AMateria( AMateria const & src ) {
-    this->setXP( src->getXP() );
-    this->setType( src->getType() );
+    this->setXP( src.getXP() );
+    this->setType( src.getType() );
     *this = src;
     return ;
 }

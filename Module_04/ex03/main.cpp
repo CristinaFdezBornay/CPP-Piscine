@@ -6,16 +6,19 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 20:36:13 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/26 20:38:25 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/29 00:29:47 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
-#include "Materia.hpp"
+#include "AMateria.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 #include "MateriaSource.hpp"
 
 int             main( void ) {
     IMateriaSource*     src = new MateriaSource();
+
 
     src->learnMateria( new Ice() );
     src->learnMateria( new Cure() );

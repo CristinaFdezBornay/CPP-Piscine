@@ -6,13 +6,17 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 20:02:47 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/26 20:15:24 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/29 00:20:58 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-~Cure( void ) {
+Cure::Cure( void ) : AMateria( "cure" ) {
+    return ;
+}
+
+Cure::~Cure( void ) {
     return ;
 }
 
@@ -22,7 +26,7 @@ Cure*   Cure::clone( void ) const {
 }
 
 void    Cure::use( ICharacter& target ) {
-    std::cout << "* heals " << target->getName() << "’s wounds *" << std::endl;
-    AMateria::use( target );
+    std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
+    // AMateria::use( target );
     return ;
 }
