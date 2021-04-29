@@ -6,18 +6,20 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 20:59:00 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/28 23:50:28 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/29 11:25:52 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
 Character::Character( void ) {
+    this->setNbrMateria( 0 );
     return ;
 }
 
 Character::Character( std::string name ) {
     this->setName( name );
+    this->setNbrMateria( 0 );
     return ;
 }
 
@@ -35,8 +37,11 @@ void                    Character::setName( std::string const & input ) {
     return ;
 }
 
-void                    Character::setMateria( AMateria **input ) {
-    this->_materia = input;
+void                    Character::setMateria( AMateria *input ) {
+    if ( this->getNbrMateria() == 4 )
+        return ;
+    this->_materias[this->getNbrMateria()] = input;
+    this->setNbrMateria( this->getNbrMateria() + 1 );
     return ;
 }
 
@@ -49,8 +54,10 @@ std::string const &     Character::getName( void ) const {
     return this->_name;
 }
 
-AMateria                **Character::getMateria( void ) const {
-    return this->_materia;
+AMateria                *Character::getMateria( int index ) const {
+    if ( index < 0 or index > this->getNbrMateria() )
+        return NULL;
+    return this->_materias[ index ];
 }
 
 int                     Character::getNbrMateria( void ) const {
@@ -58,24 +65,19 @@ int                     Character::getNbrMateria( void ) const {
 }
 
 void                    Character::equip( AMateria* input ) {
-    if ( this->getNbrMateria() == 3 )
-        return ;
-    for (int i = 0; i < 4; ++i)
-        if ( this->getMateria()[i] == NULL ) {
-            this->getMateria()[i] = input;
-            this->setNbrMateria( this->getNbrMateria() + 1 );
-            return ;
-        }
+    this->setMateria( input );
     return ;
 }
 
 void                    Character::unequip( int index ) {
-    this->getMateria()[index] = NULL;
+    this->_materias[ index ] = NULL;
     return ;
 }
 
 void                    Character::use( int index, ICharacter& target ) {
-    this->getMateria()[index]->use(target);
+    if ( index < 0 or index >= this->getNbrMateria() )
+        return ;
+    this->getMateria(index)->use(target);
     return ;
 }
 

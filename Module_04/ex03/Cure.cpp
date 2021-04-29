@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 20:02:47 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/29 00:20:58 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/29 11:00:08 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ Cure*   Cure::clone( void ) const {
 
 void    Cure::use( ICharacter& target ) {
     std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
-    // AMateria::use( target );
+    AMateria::use( target );
     return ;
 }

@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 23:48:27 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/29 00:02:14 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/29 10:44:00 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,17 @@ class MateriaSource : virtual public IMateriaSource {
         MateriaSource( MateriaSource const & src );
         ~MateriaSource( void );
 
-        void                    setMaterias( AMateria **materias );
-        AMateria                **getMaterias( void ) const;
+        void                    setMateria( AMateria *materias );
+        void                    setNbrMateria( int input );
+        AMateria                *getMateria( int index ) const;
+        int                     getNbrMateria( void ) const;
 
         virtual void            learnMateria( AMateria *input );
         virtual AMateria *      createMateria( std::string const & type );
     
     private:
-        AMateria **             _materias;
+        AMateria                *_materias[4];
+        int                     _nbrMateria;
 };
 
 #endif

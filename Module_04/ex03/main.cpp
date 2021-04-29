@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 20:36:13 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/29 00:29:47 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/29 11:29:41 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int             main( void ) {
     me->equip(tmp);
     tmp = src->createMateria("cure");
     me->equip(tmp);
+
 
     ICharacter*         bob = new Character("bob");
     me->use(0, *bob);
