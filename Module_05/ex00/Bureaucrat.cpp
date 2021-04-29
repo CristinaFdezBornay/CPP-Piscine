@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 13:09:09 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/29 23:16:38 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/29 23:41:30 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ Bureaucrat::Bureaucrat( void ) {
     return ;
 }
 
-Bureaucrat::Bureaucrat( std::string name, unsigned int grade ) {
-    this->setName( name );
+Bureaucrat::Bureaucrat( std::string name, unsigned int grade ) : _name( name ) {
     this->setGrade( grade );
     return ;
 }
@@ -28,11 +27,6 @@ Bureaucrat::Bureaucrat( Bureaucrat const & src ) {
 }
 
 Bureaucrat::~Bureaucrat( void ) {
-    return ;
-}
-
-void                Bureaucrat::setName( std::string const input ) {
-    this->_name = input;
     return ;
 }
 

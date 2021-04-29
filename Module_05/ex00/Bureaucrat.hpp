@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 12:58:27 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/29 23:09:26 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/04/29 23:41:37 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class Bureaucrat {
         Bureaucrat( Bureaucrat const & src );
         virtual ~Bureaucrat( void );
 
-        void                        setName( std::string const input );
         void                        setGrade( unsigned int input );
         std::string                 getName( void ) const;
         unsigned int                getGrade( void ) const;
@@ -47,7 +46,7 @@ class Bureaucrat {
         };
 
     private:
-        std::string                 _name;
+        std::string const           _name;
         unsigned int                _grade;
 };
 
