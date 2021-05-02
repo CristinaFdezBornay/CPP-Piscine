@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 13:09:09 by crfernan          #+#    #+#             */
-/*   Updated: 2021/05/02 10:03:59 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/05/02 10:19:55 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void                Bureaucrat::incrementGrade( void ) {
         this->setGrade( this->getGrade() - 1 );
     }
     catch ( Bureaucrat::GradeTooHighException & error ) {
-        std::cout << error.what() << std::endl;
+        std::cout << "Cannot increment grade because " << error.what() << std::endl;
     }
     return ;
 }
@@ -61,7 +61,7 @@ void                Bureaucrat::decrementGrade( void ) {
         this->setGrade( this->getGrade() + 1 );
     }
     catch ( Bureaucrat::GradeTooLowException & error ) {
-        std::cout << error.what() << std::endl;
+        std::cout << "Cannot decrement grade because " << error.what() << std::endl;
     }
     return ;
 }
@@ -77,10 +77,10 @@ std::ostream &      operator<<( std::ostream & o, Bureaucrat const & src ) {
     return o;
 }
 
-const char *        Bureaucrat::GradeTooHighException::what () const throw () {
-    return "Bureaucrat : grade to high !";
+const char*         Bureaucrat::GradeTooLowException::what() const throw() {
+	return "their grade is too low";
 }
 
-const char *        Bureaucrat::GradeTooLowException::what () const throw () {
-    return "Bureaucrat : grade to low !";
+const char*         Bureaucrat::GradeTooHighException::what() const throw() {
+	return "their grade is too high";
 }
