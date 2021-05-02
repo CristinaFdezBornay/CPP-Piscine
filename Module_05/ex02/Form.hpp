@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 12:58:27 by crfernan          #+#    #+#             */
-/*   Updated: 2021/05/02 09:56:02 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/05/02 18:46:30 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,22 @@ class Form {
                 virtual const char * what () const throw ();
         };
 
+        class GradeTooLowException : public std::exception {
+            public:
+                virtual const char * what () const throw ();
+        };
+
+        class GradeTooHighException : public std::exception {
+            public:
+                virtual const char* what() const throw();
+        };
+
     private:
         bool                        _signed;
         std::string const           _name;
         unsigned int const          _gradeToSign;
         unsigned int const          _gradeToExecute;
+        void                        _checkGrades( void ) const;
 };
 
 std::ostream &     operator<<( std::ostream & o, Form const & src );

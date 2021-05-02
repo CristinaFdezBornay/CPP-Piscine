@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 13:09:09 by crfernan          #+#    #+#             */
-/*   Updated: 2021/05/02 11:03:35 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/05/02 18:49:22 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ std::ostream &      operator<<( std::ostream & o, Form const & src ) {
 }
 
 const char*         Form::FormNotSignedException::what() const throw() {
-    return "the docuemnt is not signed";
+    return "the document is not signed";
 }
 
 const char*         Form::GradeTooLowException::what() const throw() {
