@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 22:25:04 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/30 01:07:35 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/05/02 09:19:38 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,5 @@ int         main( void ) {
 
     delete bob;
     delete form;
+    return 0;
 }
