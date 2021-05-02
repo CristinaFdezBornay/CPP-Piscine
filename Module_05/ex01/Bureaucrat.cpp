@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 13:09:09 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/30 00:56:39 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/05/02 10:05:23 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,12 @@ Bureaucrat &        Bureaucrat::operator=( Bureaucrat const & rhs ) {
 std::ostream &      operator<<( std::ostream & o, Bureaucrat const & src ) {
     o << src.getName() << ", bureaucrat grade " << src.getGrade() << std::endl;
     return o;
+}
+
+const char *        Bureaucrat::GradeTooHighException::what () const throw () {
+    return "Bureaucrat : grade to high !";
+}
+
+const char *        Bureaucrat::GradeTooLowException::what () const throw () {
+    return "Bureaucrat : grade to low !";
 }
