@@ -6,13 +6,13 @@
 #    By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/30 13:43:42 by crfernan          #+#    #+#              #
-#    Updated: 2021/04/30 00:39:00 by crfernan         ###   ########.fr        #
+#    Updated: 2021/05/01 11:10:27 by crfernan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # INFO PROYECT
 DAY = C++ 05
-EX = Ex 00
+EX = Ex 01
 
 # COMPILER AND FLAGS
 CPP = clang++
