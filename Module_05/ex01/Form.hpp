@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 12:58:27 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/30 00:46:44 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/05/02 10:23:40 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,9 @@ class Form {
 
         Form &                      operator=( Form const & rhs );
 
-        class GradeTooLowException : public std::exception {
+        class FormNotSignedException : public std::exception {
             public:
-                virtual const char * what () const throw () {
-                    return ("Form :: Grade Too Low");
-                }
+                virtual const char * what () const throw ();
         };
 
     private:

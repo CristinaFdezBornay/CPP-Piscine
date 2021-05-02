@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 13:09:09 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/30 01:05:19 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/05/02 10:25:54 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,9 @@ unsigned int        Form::getGradeToExecute( void ) const {
 }
 
 void                Form::beSigned( Bureaucrat const & bureaucrat ) {
-    try {
-        bureaucrat.signForm( this );
-    }
-    catch ( Bureaucrat::GradeTooLowException & error ) {
-        throw( Form::GradeTooLowException() );
-    }
+    if ( bureaucrat.getGrade() > this->getGradeToSign() )
+        throw( Bureaucrat::GradeTooLowException() );
+    this->setSigned( bool(1) );
     return ;
 }
 
@@ -72,4 +69,8 @@ std::ostream &      operator<<( std::ostream & o, Form const & src ) {
     o << src.getName() << " form is ";
     o << (src.getSigned() ? "signed." : "not signed.") << std::endl;
     return o;
+}
+
+const char*         Form::FormNotSignedException::what() const throw() {
+    return "the docuemnt is not signed";
 }
