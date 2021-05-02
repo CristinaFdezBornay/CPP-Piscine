@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 13:09:09 by crfernan          #+#    #+#             */
-/*   Updated: 2021/05/02 09:55:59 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/05/02 10:26:40 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ void                Form::execute( Bureaucrat const & bureaucrat ) {
     this->action();
     return ;
 };
-
 
 Form &              Form::operator=( Form const & rhs ) {
     if ( this == &rhs ) 
