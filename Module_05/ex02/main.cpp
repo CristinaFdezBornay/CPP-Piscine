@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 22:25:04 by crfernan          #+#    #+#             */
-/*   Updated: 2021/05/02 09:56:30 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/05/06 13:11:41 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,28 @@ int         main( void ) {
     Form        *robotomy = new RobotomyRequestForm("Lol");
     Form        *presidentialPardon = new PresidentialPardonForm("BumBum");
 
+    std::cout << std::endl << "======================  TESTING PERMISSIONS  ======================" << std::endl;
     jim->executeForm( shrubbery );
     mark->signForm( shrubbery );
     bob->signForm( shrubbery );
     bob->executeForm( shrubbery );
-    jim->executeForm( shrubbery );
-
     jim->signForm( robotomy );
     jim->signForm( presidentialPardon );
 
+    std::cout << std::endl << "======================  TESTING SHUBBERY  ======================" << std::endl;
+    jim->executeForm( shrubbery );
+
+    std::cout << std::endl << "======================  TESTING ROBOTOMY  ======================" << std::endl;
     jim->executeForm( robotomy );
+    jim->executeForm( robotomy );
+    jim->executeForm( robotomy );
+    jim->executeForm( robotomy );
+    jim->executeForm( robotomy );
+    jim->executeForm( robotomy );
+    jim->executeForm( robotomy );
+    jim->executeForm( robotomy );
+
+    std::cout << std::endl << "======================  TESTING PRESIDENTIAL PARDON  ======================" << std::endl;
     jim->executeForm( presidentialPardon );
 
     delete mark;

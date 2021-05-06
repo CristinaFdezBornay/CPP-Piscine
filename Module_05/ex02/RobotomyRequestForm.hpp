@@ -21,7 +21,13 @@ class RobotomyRequestForm : public Form {
         RobotomyRequestForm( std::string target );
         virtual ~RobotomyRequestForm( void );
 
-        void        action( void ) const;
+        std::string const       getTarget( void ) const;
+        void                    action( void ) const;
+
+        class RobotomyException : public std::exception {
+            public:
+                virtual const char * what () const throw ();
+        };
 
     private:
         RobotomyRequestForm( void );

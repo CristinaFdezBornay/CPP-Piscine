@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 13:09:09 by crfernan          #+#    #+#             */
-/*   Updated: 2021/05/02 09:54:28 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/05/06 13:16:43 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,9 @@ void                Bureaucrat::signForm( Form * form ) const {
 
 void                Bureaucrat::executeForm( Form * form ) const {
     try {
-        form->execute( *this );
         std::cout << this->getName() << " executes " << form->getName() << std::endl;
-    } catch ( Form::FormNotSignedException & e) {
-        std::cout << this->getName() << " cannot execute " << form->getName() << " because " << e.what() << std::endl;
-    } catch ( Bureaucrat::GradeTooLowException & e) {
+        form->execute( *this );
+    } catch ( std::exception & e ) {
         std::cout << this->getName() << " cannot execute " << form->getName() << " because " << e.what() << std::endl;
     }
     return ;

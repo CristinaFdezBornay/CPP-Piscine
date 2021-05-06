@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 09:08:22 by crfernan          #+#    #+#             */
-/*   Updated: 2021/05/02 09:49:27 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/05/06 13:10:57 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,19 @@ RobotomyRequestForm::~RobotomyRequestForm( void ) {
     return ;
 }
 
-void        RobotomyRequestForm::action( void ) const {
-    std::cout << "RobotomyRequestForm action" << std::endl;
+std::string const       RobotomyRequestForm::getTarget( void ) const {
+    return this->_target;
+}
+
+void                    RobotomyRequestForm::action( void ) const {
+    std::cout << "Drilling noise: https://www.youtube.com/watch?v=WPRJqHGJbnU" << std::endl;
+    if (rand() % 2)
+		std::cout << this->getTarget() << " has been succesfully Robotomized !!" << std::endl; 
+    else
+        throw( RobotomyRequestForm::RobotomyException() );
     return ;
+}
+
+const char*             RobotomyRequestForm::RobotomyException::what() const throw() {
+	return "just 50% of the times we can robotomize succesfully.";
 }

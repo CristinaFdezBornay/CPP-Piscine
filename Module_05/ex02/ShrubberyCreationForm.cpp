@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 09:08:22 by crfernan          #+#    #+#             */
-/*   Updated: 2021/05/02 09:23:57 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/05/06 13:00:59 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,33 @@ ShrubberyCreationForm::~ShrubberyCreationForm( void ) {
     return ;
 }
 
-void        ShrubberyCreationForm::action( void ) const {
-    std::cout << "ShrubberyCreationForm action" << std::endl;
+std::string const       ShrubberyCreationForm::getTarget( void ) const {
+    return this->_target;
+}
+
+void                    ShrubberyCreationForm::action( void ) const {
+    std::ofstream       myFile;
+
+    try {
+        myFile.open(this->getTarget() + "_shrubbery");
+        myFile << "      ." << std::endl;
+        myFile << "   __/ \\__" << std::endl;
+        myFile << "   \\     /" << std::endl;
+        myFile << "   /.'o'.\\" << std::endl;
+        myFile << "    .o.'." << std::endl;
+        myFile << "   .'.'o'." << std::endl;
+        myFile << "  o'.o.'.o." << std::endl;
+        myFile << " .'.o.'.'.o." << std::endl;
+        myFile << ".o.'.o.'.o.'." << std::endl;
+        myFile << "   [_____]" << std::endl;
+        myFile << "    \\___/" << std::endl;
+        myFile.close();
+    } catch ( std::exception & e ) {
+	    throw ( ShrubberyCreationForm::ShrubberyException() );
+    }
     return ;
+}
+
+const char*             ShrubberyCreationForm::ShrubberyException::what() const throw() {
+	return "there has been a problem with the file to write ASCII trees on it.";
 }

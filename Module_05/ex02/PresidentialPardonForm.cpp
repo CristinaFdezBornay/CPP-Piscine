@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 09:08:22 by crfernan          #+#    #+#             */
-/*   Updated: 2021/05/02 09:49:18 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/05/06 13:16:10 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,11 @@ PresidentialPardonForm::~PresidentialPardonForm( void ) {
     return ;
 }
 
-void        PresidentialPardonForm::action( void ) const {
-    std::cout << "PresidentialPardonForm action" << std::endl;
+std::string const       PresidentialPardonForm::getTarget( void ) const {
+    return this->_target;
+}
+
+void                    PresidentialPardonForm::action( void ) const {
+    std::cout << this->getTarget() << " has been pardoned by Zafod Beeblebrox." << std::endl;
     return ;
 }
