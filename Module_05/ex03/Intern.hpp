@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 13:28:23 by crfernan          #+#    #+#             */
-/*   Updated: 2021/05/06 16:05:14 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/05/07 15:33:10 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ class Intern {
         virtual Form *                          makeShrubberyCreation( std::string target ) const;
         virtual Form *                          makeRobotomyRequest( std::string target ) const;
         virtual Form *                          makePresidentialPardon( std::string target ) const;
+
+        Intern &                                operator=( Intern const & rhs );
 
         class InternException : public std::exception {
             public:

@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 13:35:52 by crfernan          #+#    #+#             */
-/*   Updated: 2021/05/06 16:17:13 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/05/07 15:33:42 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,12 @@ Form *          Intern::makeForm( std::string name, std::string target ) {
         std::cout << e.what() << std::endl;
         return NULL;
     }
+}
+
+Intern &        Intern::operator=( Intern const & rhs ) {
+    if ( this == &rhs ) 
+        return *this;
+    return *this;
 }
 
 const char*     Intern::InternException::what() const throw() {
