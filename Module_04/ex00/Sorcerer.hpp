@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 18:03:36 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/08 23:15:43 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/06/03 16:24:22 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 class       Sorcerer {
     public:
-        ~Sorcerer( void );
+        virtual ~Sorcerer( void );
         Sorcerer( std::string name, std::string title );
         Sorcerer( Sorcerer const & src );
 
