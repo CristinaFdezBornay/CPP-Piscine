@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 00:54:22 by crfernan          #+#    #+#             */
-/*   Updated: 2021/06/10 13:03:56 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/06/10 14:31:41 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,13 @@
 #include "SuperMutant.hpp"
 #include "AnotherEnemy.hpp"
 
-void    test( void ) {
-    std::cout << "LOL" << std::endl;
+void    test( Character *me ) {
+    AWeapon     *aw = new AnotherWeapon();
+    Enemy       *ae = new AnotherEnemy();
+
+    me->equip( aw );
+    me->attack( ae );
+    me->attack( ae );
 }
 
 void    check_args_and_run_test( int argc, char **argv, Character *me ) {
@@ -57,7 +62,7 @@ int     main( int argc, char **argv ) {
     me->attack(b);
     std::cout << *me;
 
-    check_args_and_run_test( argc, argv );
+    check_args_and_run_test( argc, argv, me );
 
     return 0;
 }

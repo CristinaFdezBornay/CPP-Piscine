@@ -6,7 +6,7 @@
 #    By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/30 13:43:42 by crfernan          #+#    #+#              #
-#    Updated: 2021/04/12 22:12:59 by crfernan         ###   ########.fr        #
+#    Updated: 2021/06/10 14:24:47 by crfernan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,13 +22,13 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
 # SOURCES
-SRCS = main.cpp AWeapon.cpp PlasmaRifle.cpp PowerFist.cpp Enemy.cpp SuperMutant.cpp RadScorpion.cpp Character.cpp
+SRCS = main.cpp AWeapon.cpp PlasmaRifle.cpp PowerFist.cpp Enemy.cpp SuperMutant.cpp RadScorpion.cpp Character.cpp AnotherEnemy.cpp AnotherWeapon.cpp
 
 # OBJECTS
 OBJS = $(SRCS:.cpp=.o)
 
 # INCLUDES
-INCL = AWeapon.hpp PlasmaRifle.hpp PowerFist.hpp Enemy.hpp SuperMutant.hpp RadScorpion.hpp Character.hpp
+INCL = AWeapon.hpp PlasmaRifle.hpp PowerFist.hpp Enemy.hpp SuperMutant.hpp RadScorpion.hpp Character.hpp AnotherEnemy.hpp AnotherWeapon.hpp
 
 # EXECUTABLE
 NAME = AbstractClasses
