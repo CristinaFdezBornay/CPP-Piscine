@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 23:16:18 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/26 19:26:47 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/06/10 14:38:24 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class       Squad : public ISquad {
     public:
         Squad( void );
-        ~Squad( void );
+        virtual ~Squad( void );
         Squad( Squad const & rhs );
 
         void                    setCount( int input );

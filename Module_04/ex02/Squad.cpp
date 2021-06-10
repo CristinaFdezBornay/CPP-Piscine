@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 16:45:44 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/26 19:25:16 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/06/10 14:47:12 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ ISpaceMarine**          Squad::getMarines( void ) const {
 }
 
 ISpaceMarine*           Squad::getUnit( int index ) const {
-    if ( index >= Squad::getCount() )
+    if ( index >= Squad::getCount() or index < 0)
         return NULL;
     return Squad::getMarines()[index];
 }

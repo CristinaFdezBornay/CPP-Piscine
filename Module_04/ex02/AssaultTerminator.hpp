@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 18:18:06 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/23 00:24:34 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/06/10 14:50:28 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class AssaultTerminator : public ISpaceMarine {
     public:
         AssaultTerminator( void );
-        ~AssaultTerminator( void );
+        virtual ~AssaultTerminator( void );
         AssaultTerminator( AssaultTerminator const & rhs );
 
         AssaultTerminator*      clone( void ) const;
