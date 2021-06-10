@@ -17,23 +17,34 @@
 #include "TacticalMarine.hpp"
 
 void    test( void ) {
-    ISpaceMarine*   bob = new TacticalMarine;
-    ISquad*         vlc = new Squad;
+    ISpaceMarine*   tactMarine = new TacticalMarine;
+    ISpaceMarine*   assTerm = new AssaultTerminator;
+    Squad*          squad_1 = new Squad;
 
     std::cout << "Push NULL"<< std::endl;
-    vlc->push(NULL);
-    std::cout << "Count Marines " << vlc->getCount() << std::endl;
-    std::cout << "Push Bob      1"<< std::endl;
-    vlc->push(bob);
-    std::cout << "Count Marines " << vlc->getCount() << std::endl;
-    std::cout << "Push Bob      2"<< std::endl;
-    vlc->push(bob);
-    std::cout << "Count Marines " << vlc->getCount() << std::endl;
-    std::cout << "Push Bob      3"<< std::endl;
-    vlc->push(bob);
-    std::cout << "Count Marines " << vlc->getCount() << std::endl;
+    squad_1->push(NULL);
+    std::cout << "Count Marines SQ1: " << squad_1->getCount() << std::endl;
 
-    delete vlc;
+    std::cout << "Push Tactical Marine    1" << std::endl;
+    squad_1->push(tactMarine);
+    std::cout << "Count Marines SQ1: " << squad_1->getCount() << std::endl;
+
+    std::cout << "Push Assault Terminator 1" << std::endl;
+    squad_1->push(assTerm);
+    std::cout << "Count Marines SQ1: " << squad_1->getCount() << std::endl;
+
+    std::cout << "Push Tactical Marine    2" << std::endl;
+    squad_1->push(tactMarine);
+    std::cout << "Count Marines SQ1: " << squad_1->getCount() << std::endl << std::endl;
+
+    std::cout << "Creating Squad 2 : construtor by copy & push" << std::endl;
+    Squad*          squad_2 = new Squad( *squad_1 );
+    squad_2->push(tactMarine);
+    std::cout << "Count Marines SQ2: " << squad_2->getCount() << std::endl << std::endl;
+
+    std::cout << "Deleting Squadsss" << std::endl << std::endl;
+    delete squad_1;
+    delete squad_2;
 }
 
 void    check_args_and_run_test( int argc, char **argv ) {

@@ -32,7 +32,7 @@ class       Squad : public ISquad {
         Squad &                 operator=( Squad const & rhs );
 
     private:
-        static int              _count;
+        int                     _count;
         ISpaceMarine**          _marines;
 };
 
