@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 01:00:07 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/17 23:25:47 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/06/10 11:58:27 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 class PowerFist : public AWeapon {
     public:
         PowerFist( void );
+        virtual ~PowerFist( void );
 
         void            attack( void ) const;
 };

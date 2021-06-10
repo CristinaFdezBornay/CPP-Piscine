@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 23:22:32 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/12 16:42:25 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/06/10 11:37:32 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void            Enemy::setType( std::string input ) {
 
 void            Enemy::setHitPoints( int input ) {
     this->_hitPoints = input;
+    if ( this->_hitPoints < 0 )
+        this->_hitPoints = 0;
     return ;
 }
 

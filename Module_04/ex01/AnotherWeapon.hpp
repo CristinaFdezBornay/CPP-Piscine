@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RadScorpion.hpp                                    :+:      :+:    :+:   */
+/*   AnotherWeapon.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/11 00:11:44 by crfernan          #+#    #+#             */
-/*   Updated: 2021/06/10 12:51:51 by crfernan         ###   ########.fr       */
+/*   Created: 2021/04/09 00:28:37 by crfernan          #+#    #+#             */
+/*   Updated: 2021/06/10 13:01:57 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RADSCORPION_HPP
-# define RADSCORPION_HPP
+#ifndef ANOTHERWEAPON_HPP
+# define ANOTHERWEAPON_HPP
 
-# include <iostream>
-# include "Enemy.hpp"
+# include "AWeapon.hpp"
 
-class       RadScorpion : public Enemy {
+class AnotherWeapon : public AWeapon {
     public:
-        RadScorpion( void );
-        virtual ~RadScorpion( void );
+        AnotherWeapon( void );
+        virtual ~AnotherWeapon( void );
+
+        void            attack( void ) const;
 };
 
 #endif

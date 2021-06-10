@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 00:23:55 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/12 17:36:56 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/06/10 12:30:58 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class       Character {
     public:
         Character( std::string const & name );
-        ~Character( void );
+        virtual ~Character( void );
 
         void            setName( std::string input );
         void            setActionPoints( int input );
@@ -33,7 +33,7 @@ class       Character {
         void            equip( AWeapon *weapon );
         void            attack( Enemy *enemy );
 
-        // Character &     operator=( Character const & rhs );
+        Character &     operator=( Character const & rhs );
 
     private:
         Character( void );
