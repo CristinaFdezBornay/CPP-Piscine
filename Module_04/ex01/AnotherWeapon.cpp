@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RadScorpion.hpp                                    :+:      :+:    :+:   */
+/*   AnotherWeapon.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/11 00:11:44 by crfernan          #+#    #+#             */
-/*   Updated: 2021/06/10 12:51:51 by crfernan         ###   ########.fr       */
+/*   Created: 2021/04/09 00:48:11 by crfernan          #+#    #+#             */
+/*   Updated: 2021/06/10 14:31:16 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RADSCORPION_HPP
-# define RADSCORPION_HPP
+#include "AnotherWeapon.hpp"
 
-# include <iostream>
-# include "Enemy.hpp"
+AnotherWeapon::AnotherWeapon( void ) : AWeapon( "Another Weapon", 1, 500 ) {
+    return ;
+}
 
-class       RadScorpion : public Enemy {
-    public:
-        RadScorpion( void );
-        virtual ~RadScorpion( void );
-};
+AnotherWeapon::~AnotherWeapon( void ) {
+    return ;
+}
 
-#endif
+void            AnotherWeapon::attack( void ) const {
+    std::cout << "* THE MOST POWERFUL WEAPON ON EARTH *" << std::endl;
+    return ;
+}

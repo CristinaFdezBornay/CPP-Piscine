@@ -6,47 +6,54 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 16:45:44 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/26 19:25:16 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/06/10 14:47:12 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Squad.hpp"
 
 Squad::Squad( void ) {
-    Squad::setMarines(NULL);
-    Squad::setCount(0);
+    this->setMarines(NULL);
+    this->setCount(0);
     return ;
 }
 
 Squad::~Squad( void ) {
-    for ( int i = 0; i < Squad::getCount(); ++i )
-        delete Squad::getUnit( i );
-    delete [] Squad::getMarines();
+    for ( int i = 0; i < this->getCount(); ++i )
+        delete this->getUnit( i );
+    delete [] this->getMarines();
+    std::cout << "Squad Dead" << std::endl;
+    return ;
+}
+
+Squad::Squad( Squad const & rhs ) {
+    for ( int i = 0; i < rhs.getCount(); ++i )
+        this->push( rhs.getUnit( i ) );
     return ;
 }
 
 void                    Squad::setCount( int input ) {
-    Squad::_count = input;
+    this->_count = input;
     return ;
 }
 
 void                    Squad::setMarines( ISpaceMarine** input ) {
-    Squad::_marines = input;
+    this->_marines = input;
     return ;
 }
 
 int                     Squad::getCount( void ) const {
-    return Squad::_count;
+    return this->_count;
 }
 
 ISpaceMarine**          Squad::getMarines( void ) const {
-    return Squad::_marines;
+    return this->_marines;
 }
 
 ISpaceMarine*           Squad::getUnit( int index ) const {
-    if ( index >= Squad::getCount() )
+    if ( index >= this->getCount() or index < 0 )
         return NULL;
-    return Squad::getMarines()[index];
+    return this->getMarines()[index];
 }
 
 int                     Squad::push( ISpaceMarine *src ) {
@@ -54,26 +61,24 @@ int                     Squad::push( ISpaceMarine *src ) {
 
     if ( src == NULL )
         return 0;
-    for ( int i = 0; i < Squad::getCount(); ++i ) {
-        if ( Squad::getUnit( i ) == src )
-            return Squad::getCount();
-    }
-    if ( !( new_squad = new ISpaceMarine*[Squad::getCount() + 1] ) )
+    if ( !( new_squad = new ISpaceMarine*[this->getCount() + 1] ) )
         return -1;
-    for ( int i = 0; i < Squad::getCount(); ++i ) {
-        new_squad[i] = Squad::getMarines()[i];
+    for ( int i = 0; i < this->getCount(); ++i ) {
+        new_squad[i] = this->getUnit(i)->clone();
+        delete this->getUnit(i);
     }
-    new_squad[ Squad::getCount() ] = src;
-    delete [] Squad::getMarines();
-    Squad::setMarines( new_squad );
-    Squad::setCount( Squad::getCount() + 1 );
-    return Squad::getCount();
+    new_squad[ this->getCount() ] = src->clone();
+    delete [] this->getMarines();
+    this->setMarines( new_squad );
+    this->setCount( this->getCount() + 1 );
+    return this->getCount();
 }
 
 Squad &                 Squad::operator=( Squad const & rhs ) {
-    if ( this == &rhs ) 
+    if ( this == &rhs )
         return *this;
+
+    for ( int i = 0; i < rhs.getCount(); ++i )
+        this->push( rhs.getUnit( i ) );
     return *this;
 }
-
-int                     Squad::_count = 0;

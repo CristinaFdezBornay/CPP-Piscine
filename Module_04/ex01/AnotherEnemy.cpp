@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RadScorpion.hpp                                    :+:      :+:    :+:   */
+/*   AnotherEnemy.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/11 00:11:44 by crfernan          #+#    #+#             */
-/*   Updated: 2021/06/10 12:51:51 by crfernan         ###   ########.fr       */
+/*   Created: 2021/04/10 23:57:56 by crfernan          #+#    #+#             */
+/*   Updated: 2021/06/10 14:24:00 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RADSCORPION_HPP
-# define RADSCORPION_HPP
+#include "AnotherEnemy.hpp"
 
-# include <iostream>
-# include "Enemy.hpp"
+AnotherEnemy::AnotherEnemy( void ) : Enemy( 1000, "Another Enemy" ) {
+    std::cout << "* I AM IMBATTABLE *" << std::endl;
+    return ;
+}
 
-class       RadScorpion : public Enemy {
-    public:
-        RadScorpion( void );
-        virtual ~RadScorpion( void );
-};
-
-#endif
+AnotherEnemy::~AnotherEnemy( void ) {
+    std::cout << "* ooopps I died :( *" << std::endl;
+    return ;
+}

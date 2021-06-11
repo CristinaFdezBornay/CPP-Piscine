@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 23:43:42 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/17 22:47:07 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/06/10 11:33:38 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,13 @@ class AWeapon {
 
         virtual void    attack( void ) const = 0;
     
-    private:
-        AWeapon( void );
+    protected:
         std::string     _name;
         int             _apCost;
         int             _damage;
+
+    private:
+        AWeapon( void );
 };
 
 std::ostream &     operator<<( std::ostream & o, AWeapon const & src );

@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 22:42:05 by crfernan          #+#    #+#             */
-/*   Updated: 2021/06/03 16:44:05 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/06/11 10:33:13 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ class       Peon : public Victim {
         virtual ~Peon( void );
         Peon( std::string name );
 
-        virtual void    getPolymorphed( void ) const;
+        void    getPolymorphed( void ) const;
+
+    private:
+        std::string     _name;
 };
 
 #endif
