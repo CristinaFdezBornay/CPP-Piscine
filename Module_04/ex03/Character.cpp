@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 20:59:00 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/29 11:25:52 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/06/11 12:10:41 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,16 @@ Character::Character( std::string name ) {
 }
 
 Character::Character( Character const & src ) {
-    *this = src;
+    this->setName( src.getName() );
+    this->setNbrMateria( 0 );
+    for ( int i = 0; i < src.getNbrMateria(); ++i )
+        this->setMateria( src.getMateria(i)->clone() );
     return ;
 }
 
 Character::~Character( void ) {
+    for ( int i = 0; i < this->getNbrMateria(); ++i )
+        delete this->getMateria(i);
     return ;
 }
 
@@ -38,10 +43,7 @@ void                    Character::setName( std::string const & input ) {
 }
 
 void                    Character::setMateria( AMateria *input ) {
-    if ( this->getNbrMateria() == 4 )
-        return ;
     this->_materias[this->getNbrMateria()] = input;
-    this->setNbrMateria( this->getNbrMateria() + 1 );
     return ;
 }
 
@@ -55,7 +57,7 @@ std::string const &     Character::getName( void ) const {
 }
 
 AMateria                *Character::getMateria( int index ) const {
-    if ( index < 0 or index > this->getNbrMateria() )
+    if ( index < 0 or index >= this->getNbrMateria() )
         return NULL;
     return this->_materias[ index ];
 }
@@ -65,11 +67,16 @@ int                     Character::getNbrMateria( void ) const {
 }
 
 void                    Character::equip( AMateria* input ) {
+    if ( this->getNbrMateria() == 4 )
+        return ;
     this->setMateria( input );
+    this->setNbrMateria( this->getNbrMateria() + 1 );
     return ;
 }
 
 void                    Character::unequip( int index ) {
+    if ( index < 0 or index >= this->getNbrMateria() )
+        return ;
     this->_materias[ index ] = NULL;
     return ;
 }
@@ -84,5 +91,9 @@ void                    Character::use( int index, ICharacter& target ) {
 Character &             Character::operator=( Character const & rhs ) {
     if ( this == &rhs ) 
         return *this;
+    this->setName( rhs.getName() );
+    this->setNbrMateria( 0 );
+    for ( int i = 0; i < rhs.getNbrMateria(); ++i )
+        this->setMateria( rhs.getMateria(i)->clone() );
     return *this;
 }

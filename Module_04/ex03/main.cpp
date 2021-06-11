@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 20:36:13 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/29 11:29:41 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/06/11 12:35:42 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,37 @@
 #include "AMateria.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
+#include "AnotherMateria.hpp"
 #include "MateriaSource.hpp"
 
-int             main( void ) {
-    IMateriaSource*     src = new MateriaSource();
+void    test( IMateriaSource *src ) {
+    Character*         me = new Character("me");
 
+    src->learnMateria( new AnotherMateria() );
+
+    me->equip( src->createMateria("cure") );
+    me->equip( src->createMateria("ice") );
+    me->equip( src->createMateria("Another Materia") );
+    me->equip( src->createMateria("Another Materia") );
+    me->equip( src->createMateria("ice") );
+    std::cout << "Character me type of materias:" << std::endl;
+    for ( int i = 0; i < me->getNbrMateria(); ++i )
+        std::cout << me->getMateria(i)->getType() << "  -->   " << me->getMateria(i) << std::endl;
+    delete me;
+}
+
+void    check_args_and_run_test( int argc, char **argv, IMateriaSource *src ) {
+    if ( argc == 1 or argv[1][0] != 't' )
+        return ;
+    std::cout << std::endl;
+    std::cout << "============================= EXTRA TESTS =============================" << std::endl;
+    test( src );
+    std::cout << "=======================================================================" << std::endl;
+    std::cout << std::endl;
+}
+
+int     main( int argc, char **argv ) {
+    IMateriaSource*     src = new MateriaSource();
 
     src->learnMateria( new Ice() );
     src->learnMateria( new Cure() );
@@ -38,6 +64,9 @@ int             main( void ) {
 
     delete bob;
     delete me;
+
+    check_args_and_run_test( argc, argv, src );
+
     delete src;
 
     return 0;

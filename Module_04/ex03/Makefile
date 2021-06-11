@@ -6,7 +6,7 @@
 #    By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/30 13:43:42 by crfernan          #+#    #+#              #
-#    Updated: 2021/04/26 20:39:47 by crfernan         ###   ########.fr        #
+#    Updated: 2021/06/11 12:20:47 by crfernan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,13 +22,13 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
 # SOURCES
-SRCS = AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp main.cpp
+SRCS = AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp main.cpp AnotherMateria.cpp
 
 # OBJECTS
 OBJS = $(SRCS:.cpp=.o)
 
 # INCLUDES
-INCL = AMateria.hpp Character.hpp Cure.hpp ICharacter.hpp IMateriaSource.hpp Ice.hpp MateriaSource.hpp
+INCL = AMateria.hpp Character.hpp Cure.hpp ICharacter.hpp IMateriaSource.hpp Ice.hpp MateriaSource.hpp AnotherMateria.hpp
 
 # EXECUTABLE
 NAME = InterfacesS

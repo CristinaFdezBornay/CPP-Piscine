@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 20:01:06 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/29 10:17:39 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/06/11 12:11:15 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Ice : public AMateria {
     public:
         Ice( void );
-        ~Ice( void );
+        virtual ~Ice( void );
 
         virtual Ice*    clone( void ) const;
         virtual void    use( ICharacter& target );
