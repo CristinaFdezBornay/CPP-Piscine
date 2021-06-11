@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 17:04:07 by crfernan          #+#    #+#             */
-/*   Updated: 2021/04/26 19:24:25 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/06/11 11:31:44 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,21 @@ void    test( void ) {
 
     std::cout << "Creating Squad 2 : construtor by copy & push" << std::endl;
     Squad*          squad_2 = new Squad( *squad_1 );
-    squad_2->push(tactMarine);
+    squad_2->push( tactMarine->clone() );
+    std::cout << "Count Marines SQ1: " << squad_1->getCount() << std::endl;
     std::cout << "Count Marines SQ2: " << squad_2->getCount() << std::endl << std::endl;
+
+    std::cout << "Creating Squad 3 : assignation & push" << std::endl;
+    Squad*          squad_3 = new Squad();
+    squad_3->operator=( *squad_1 );
+    squad_3->push( assTerm->clone() );
+    std::cout << "Count Marines SQ1: " << squad_1->getCount() << std::endl;
+    std::cout << "Count Marines SQ3: " << squad_3->getCount() << std::endl << std::endl;
 
     std::cout << "Deleting Squadsss" << std::endl << std::endl;
     delete squad_1;
     delete squad_2;
+    delete squad_3;
 }
 
 void    check_args_and_run_test( int argc, char **argv ) {
