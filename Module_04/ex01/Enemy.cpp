@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 23:22:32 by crfernan          #+#    #+#             */
-/*   Updated: 2021/06/10 11:37:32 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/09/17 12:02:06 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,9 @@ Enemy &         Enemy::operator=( Enemy const & rhs ) {
 void            Enemy::takeDamage( int damage ) {
     if ( damage <= 0 )
         return ;
-    this->setHitPoints( this->getHitPoints() - damage );
+    if ( this->getHitPoints() - damage <= 0 )
+        this->setHitPoints(0);
+    else
+        this->setHitPoints( this->getHitPoints() - damage );
     return ;
 }

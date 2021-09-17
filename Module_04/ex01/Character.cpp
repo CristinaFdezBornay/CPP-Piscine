@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 00:30:03 by crfernan          #+#    #+#             */
-/*   Updated: 2021/06/10 12:53:49 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/09/17 12:42:48 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void            Character::recoverAP( void ) {
     this->setActionPoints( this->getActionPoints() + 10);
     if ( this->getActionPoints() > 40 )
         this->setActionPoints( 40 );
+    std::cout << this->getName() << " is recovered!! :D" << std::endl;
     return ;
 }
 
@@ -65,8 +66,14 @@ void            Character::equip( AWeapon *weapon ) {
 }
 
 void            Character::attack( Enemy *enemy ) {
-    if ( !this->getWeapon() or this->getActionPoints() <= this->getWeapon()->getAPCost() )
+    if ( !this->getWeapon() ) {
+        std::cout << this->getName() << " cannot attack because is unarmed." << std::endl;
         return ;
+    }
+    if ( this->getActionPoints() < this->getWeapon()->getAPCost() ) {
+        std::cout << this->getName() << " cannot attack because doesn't have enough AP." << std::endl;
+        return ;
+    }
     std::cout << this->getName() << " attacks " << enemy->getType() << " with a " << this->getWeapon()->getName() << std::endl;
     this->getWeapon()->attack();
     this->setActionPoints( this->getActionPoints() - this->getWeapon()->getAPCost() );

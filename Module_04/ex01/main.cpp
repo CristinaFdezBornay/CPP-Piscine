@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 00:54:22 by crfernan          #+#    #+#             */
-/*   Updated: 2021/06/10 14:31:41 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/09/17 12:41:52 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,15 @@ void    test( Character *me ) {
     Enemy       *ae = new AnotherEnemy();
 
     me->equip( aw );
+    std::cout << *me;
     me->attack( ae );
+    std::cout << *me;
     me->attack( ae );
+    me->recoverAP();
+    me->attack( ae );
+    me->equip( NULL );
+    me->attack( ae );
+
 }
 
 void    check_args_and_run_test( int argc, char **argv, Character *me ) {
