@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 17:04:07 by crfernan          #+#    #+#             */
-/*   Updated: 2021/06/11 11:31:44 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/09/17 13:14:11 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void    test( void ) {
     squad_1->push(tactMarine);
     std::cout << "Count Marines SQ1: " << squad_1->getCount() << std::endl << std::endl;
 
-    std::cout << "Creating Squad 2 : construtor by copy & push" << std::endl;
+    std::cout << "Creating Squad 2 : constructor by copy & push" << std::endl;
     Squad*          squad_2 = new Squad( *squad_1 );
     squad_2->push( tactMarine->clone() );
     std::cout << "Count Marines SQ1: " << squad_1->getCount() << std::endl;
