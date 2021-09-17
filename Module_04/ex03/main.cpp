@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 20:36:13 by crfernan          #+#    #+#             */
-/*   Updated: 2021/06/11 12:35:42 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/09/17 16:15:27 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,28 @@ void    test( IMateriaSource *src ) {
     me->equip( src->createMateria("Another Materia") );
     me->equip( src->createMateria("ice") );
     std::cout << "Character me type of materias:" << std::endl;
-    for ( int i = 0; i < me->getNbrMateria(); ++i )
-        std::cout << me->getMateria(i)->getType() << "  -->   " << me->getMateria(i) << std::endl;
+    for ( int i = 0; i < 4; ++i ) {
+        if (me->getMateria(i))
+            std::cout << "[ " << i << " ] " << me->getMateria(i)->getType() << "  -->   " << me->getMateria(i) << std::endl;
+        else
+            std::cout << "[ " << i << " ] Empty" << std::endl;
+    }
+    me->unequip(2);
+    std::cout << "Character me type of materias (after unequip 2):" << std::endl;
+    for ( int i = 0; i < 4; ++i ) {
+        if (me->getMateria(i))
+            std::cout << "[ " << i << " ] " << me->getMateria(i)->getType() << "  -->   " << me->getMateria(i) << std::endl;
+        else
+            std::cout << "[ " << i << " ] Empty" << std::endl;
+    }
+    me->equip( src->createMateria("ice") );
+    std::cout << "Character me type of materias (after equip with ice):" << std::endl;
+    for ( int i = 0; i < 4; ++i ) {
+        if (me->getMateria(i))
+            std::cout << "[ " << i << " ] " << me->getMateria(i)->getType() << "  -->   " << me->getMateria(i) << std::endl;
+        else
+            std::cout << "[ " << i << " ] Empty" << std::endl;
+    }
     delete me;
 }
 

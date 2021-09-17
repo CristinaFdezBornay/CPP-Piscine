@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 20:59:00 by crfernan          #+#    #+#             */
-/*   Updated: 2021/06/11 12:10:41 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/09/17 16:20:09 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,27 @@
 
 Character::Character( void ) {
     this->setNbrMateria( 0 );
+    for ( int i = 0; i < 4; ++i )
+        this->_materias[i] = NULL;
     return ;
 }
 
 Character::Character( std::string name ) {
     this->setName( name );
     this->setNbrMateria( 0 );
+    for ( int i = 0; i < 4; ++i )
+        this->_materias[i] = NULL;
     return ;
 }
 
 Character::Character( Character const & src ) {
     this->setName( src.getName() );
-    this->setNbrMateria( 0 );
-    for ( int i = 0; i < src.getNbrMateria(); ++i )
-        this->setMateria( src.getMateria(i)->clone() );
+    this->setNbrMateria( src.getNbrMateria() );
+    for ( int i = 0; i < 4; ++i )
+        if ( src.getMateria(i) )
+            this->_materias[i] = src.getMateria(i)->clone();
+        else
+            this->_materias[i] = NULL;
     return ;
 }
 
@@ -43,8 +50,17 @@ void                    Character::setName( std::string const & input ) {
 }
 
 void                    Character::setMateria( AMateria *input ) {
-    this->_materias[this->getNbrMateria()] = input;
+    if ( this->getNbrMateria() == 4 ) {
+        std::cout << "Cannot set materia because the number of materia is already 4" << std::endl;
+        return ;
+    }
+    for ( int i = 0; i < 4; ++i )
+        if ( !this->_materias[i] ) {
+            this->_materias[i] = input;
+            break;
+        }
     return ;
+
 }
 
 void                    Character::setNbrMateria( int input ) {
@@ -57,7 +73,7 @@ std::string const &     Character::getName( void ) const {
 }
 
 AMateria                *Character::getMateria( int index ) const {
-    if ( index < 0 or index >= this->getNbrMateria() )
+    if ( index < 0 or index >= 4 )
         return NULL;
     return this->_materias[ index ];
 }
@@ -75,9 +91,10 @@ void                    Character::equip( AMateria* input ) {
 }
 
 void                    Character::unequip( int index ) {
-    if ( index < 0 or index >= this->getNbrMateria() )
+    if ( index < 0 or index >= this->getNbrMateria() or this->getNbrMateria() == 0 )
         return ;
     this->_materias[ index ] = NULL;
+    this->setNbrMateria( this->getNbrMateria() - 1);
     return ;
 }
 
