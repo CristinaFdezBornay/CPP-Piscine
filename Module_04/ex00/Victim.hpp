@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 18:03:36 by crfernan          #+#    #+#             */
-/*   Updated: 2021/06/11 10:32:09 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/09/17 10:53:35 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class       Victim {
         std::string         getName( void ) const;
 
         Victim &            operator=( Victim const & rhs );
-        void                getPolymorphed( void ) const;
+        virtual void        getPolymorphed( void ) const;
 
     private:
         Victim( void );
