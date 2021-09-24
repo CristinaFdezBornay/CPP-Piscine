@@ -6,7 +6,7 @@
 #    By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/07 15:04:22 by crfernan          #+#    #+#              #
-#    Updated: 2021/09/23 10:34:15 by crfernan         ###   ########.fr        #
+#    Updated: 2021/09/24 15:36:33 by crfernan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,13 +22,13 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
 # SOURCES
-SRCS = Conversion.cpp Exceptions.cpp main.cpp
+SRCS = Conversion.cpp main.cpp
 
 # OBJECTS
 OBJS = $(SRCS:.cpp=.o)
 
 # INCLUDES
-INCL = Conversion.hpp Exceptions.hpp
+INCL = Conversion.hpp
 
 # EXECUTABLE
 NAME = Conversion
