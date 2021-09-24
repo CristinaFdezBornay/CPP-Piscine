@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 12:00:02 by crfernan          #+#    #+#             */
-/*   Updated: 2021/09/24 12:25:04 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/09/24 15:30:23 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "Data.hpp"
 
 uintptr_t   serialize( Data* ptr ) {
-    return (uintptr_t)ptr;
+    return reinterpret_cast<uintptr_t>(ptr);
 }
 
 Data *      deserialize( uintptr_t raw ) {
