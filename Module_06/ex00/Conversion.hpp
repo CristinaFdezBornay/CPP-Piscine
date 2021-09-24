@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 12:58:27 by crfernan          #+#    #+#             */
-/*   Updated: 2021/09/24 11:12:56 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/09/24 16:04:42 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,11 @@ class Conversion {
         void            print( void );
 
         class InputException : public std::exception {
+            public:
+                virtual const char* what() const throw();
+        };
+
+        class NastyException : public std::exception {
             public:
                 virtual const char* what() const throw();
         };

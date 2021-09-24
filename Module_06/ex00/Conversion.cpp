@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 12:58:27 by crfernan          #+#    #+#             */
-/*   Updated: 2021/09/24 11:14:10 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/09/24 16:01:56 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,12 @@ void                Conversion::detectType( void ) {
 }
 
 void                Conversion::convert( void ) {
-    ConvertFt ft_convert = this->_conversion_types[this->_type].ft_convert;
-    (*this.*ft_convert)();
+    try {
+        ConvertFt ft_convert = this->_conversion_types[this->_type].ft_convert;
+        (*this.*ft_convert)();
+    } catch (std::exception & e ) {
+        throw( NastyException() );
+    }
 }
 
 void                Conversion::convertChar( void ) {
@@ -110,33 +114,21 @@ void                Conversion::printInt( void ) {
 }
 
 void                Conversion::printFloat( void ) {
-    std::cout << this->_decimal;
     if (this->_d == 0)
         std::cout << "0.0f" << std::endl;
-    else if (trickyCase() == DOUBLE && this->_raw_input != "nanf" && this->_raw_input != "nan")
-        std::cout << "Impossible" << std::endl;
-    else if (trickyCase() == FLOAT || this->_raw_input == "nanf" || this->_raw_input == "nan")
+    else if (trickyCase())
         std::cout << this->_f << "f" << std::endl;
-    else if (this->_d >= FLOAT_MIN && this->_d <= FLOAT_MAX) {
-        std::cout << this->_f;
-        if (this->_type == INT || this->_decimal == 0)
-            std::cout << ".0f" << std::endl;
-        else
-            std::cout << "f" << std::endl;
-    } else
+    else if (this->_d >= FLOAT_MIN && this->_d <= FLOAT_MAX)
+        std::cout << std::fixed << this->_f << "f" << std::endl;
+    else
         std::cout << "Impossible" << std::endl;
 }
 
 void                Conversion::printDouble( void ) {
-    std::cout << this->_decimal;
     if (trickyCase())
         std::cout << this->_d << std::endl;
     else {
-        std::cout << this->_d;
-        if (this->_type == INT || this->_decimal == 0)
-            std::cout << ".0" << std::endl;
-        else
-            std::cout << std::endl;
+        std::cout << std::fixed << this->_d << std::endl;
     }
 }
 
@@ -151,4 +143,8 @@ void                Conversion::print( void ) {
 
 const char*         Conversion::InputException::what() const throw() {
 	return "[Error] Please introduce a valid input.";
+}
+
+const char*         Conversion::NastyException::what() const throw() {
+	return "[Error] You did something nasty.";
 }
