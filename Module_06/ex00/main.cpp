@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 15:05:40 by crfernan          #+#    #+#             */
-/*   Updated: 2021/09/23 15:07:05 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/09/24 11:14:29 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ int     main( int argc, char **argv ) {
         return 1;
     try {
         Conversion      *conversion = new Conversion( argv[1] );
-        int             type;
 
-        type = conversion->detectType();
-        conversion->convert(type);
+        conversion->detectType();
+        conversion->convert();
         conversion->print();
+
         delete conversion;
         return 0;
-    } catch ( std::exception & e ) {
+    } catch ( Conversion::InputException & e ) {
 	    std::cout << e.what() << std::endl;
     }
 }

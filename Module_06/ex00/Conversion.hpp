@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 12:58:27 by crfernan          #+#    #+#             */
-/*   Updated: 2021/09/23 16:49:16 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/09/24 11:12:56 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <map>
 # include <regex>
 # include <iostream>
-# include "Exceptions.hpp"
 
 # define CHAR           0
 # define INT            1
@@ -25,8 +24,10 @@
 
 # define REGEX_CHAR     "^[a-z]{1}$"
 # define REGEX_INT      "^-?[0-9]+$"
-# define REGEX_FLOAT    "^-?[0-9]+([.][0-9]+)?f{1}$|^nanf$|^[+]inff$|^-inff$"
+# define REGEX_FLOAT    "^-?[0-9]+[.][0-9]+f{1}$|^nanf$|^[+]inff$|^-inff$"
 # define REGEX_DOUBLE   "^-?[0-9]+[.][0-9]+$|^nan$|^[+]inf$|^-inf$"
+# define TRICKY_FLOAT   "^nanf$|^[+]inff$|^-inff$"
+# define TRICKY_DOUBLE  "^nan$|^[+]inf$|^-inf$"
 
 # define FLOAT_MIN      std::numeric_limits<float>::min()
 # define FLOAT_MAX      std::numeric_limits<float>::max()
@@ -43,26 +44,33 @@ class Conversion {
         Conversion( std::string input );
         virtual ~Conversion( void );
 
-        int             detectType( void );
+        void            detectType( void );
 
         void            convertChar( void );
         void            convertInt( void );
         void            convertFloat( void );
         void            convertDouble( void );
-        void            convert( int );
+        void            convert( void );
+
+        int             trickyCase( void );
 
         void            printChar( void );
         void            printInt( void );
         void            printFloat( void );
         void            printDouble( void );
-
         void            print( void );
+
+        class InputException : public std::exception {
+            public:
+                virtual const char* what() const throw();
+        };
 
     private:
         Conversion( void );
         Conversion( Conversion const & src );
 
-        int         _precision;
+        int         _type;
+        int         _decimal;
         std::string _raw_input;
 
         char        _c;
@@ -75,8 +83,6 @@ class Conversion {
             std::string     type;
             std::string     regex;
             ConvertFt       ft_convert;
-            long double     min;
-            long double     max;
             PrintFt         ft_print;
         }           _conversion_types[4];
 };
