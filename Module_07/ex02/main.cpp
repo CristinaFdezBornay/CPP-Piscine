@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 16:55:38 by crfernan          #+#    #+#             */
-/*   Updated: 2021/10/08 00:44:06 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/10/28 10:36:33 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ void            test_default_constructor( void ) {
 void            test_unsigned_int_constructor( void ) {
     std::cout << std::endl << "2 => TEST UNSIGNED INT CONSTRUCTOR" << std::endl;
 
-    Array<float>    *array_float = new Array<float>(3);
+    const unsigned int  size = 3;
+
+    Array<float>    *array_float = new Array<float>(size);
     array_float->print(4);
     delete array_float;
 }
@@ -58,10 +60,8 @@ void            test_operator_equal( void ) {
     (*array_char1)[2] = 'i';
     array_char1->print(3);
 
-    Array<char>     *array_char2 = new Array<char>();
-    Array<char>     *tmp;
-    tmp = array_char2;
-    array_char2 = array_char1;
+    Array<char>     *array_char2 = new Array<char>(3);
+    array_char2->operator=(*array_char1);
 
     (*array_char1)[0] = 'n';
     (*array_char1)[1] = 'o';
@@ -70,17 +70,17 @@ void            test_operator_equal( void ) {
     array_char2->print(3);
 
     delete array_char1;
-    delete tmp;
 }
 
 void            test_operator_crochet( void ) {
-    std::cout << std::endl << "4 => OPERATOR CROCHET" << std::endl;
+    std::cout << std::endl << "5 => OPERATOR CROCHET" << std::endl;
 
     Array<bool>   *array_bool = new Array<bool>(2);
     try {
-        std::cout << (*array_bool)[0] << std::endl;
-        std::cout << (*array_bool)[1] << std::endl;
-        std::cout << (*array_bool)[2] << std::endl;
+        std::cout << "Size  => " << array_bool->size() << std::endl;
+        std::cout << "i = 0 => " << (*array_bool)[0] << " | " << array_bool->operator[](0) << std::endl;
+        std::cout << "i = 1 => " << (*array_bool)[1] << " | " << array_bool->operator[](1) << std::endl;
+        std::cout << "i = 2 => " << array_bool->operator[](2) << std::endl;
     } catch ( std::exception & e ) {
         std::cout << e.what() << std::endl;
     }

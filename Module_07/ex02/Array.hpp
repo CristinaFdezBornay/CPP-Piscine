@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 18:24:39 by crfernan          #+#    #+#             */
-/*   Updated: 2021/10/08 00:40:45 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/10/28 10:37:18 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ template< typename T>
 class Array{
     public:
         Array( void );
-        Array( unsigned int const n );
+        Array( const unsigned int n );
         Array( const Array & rhs );
         virtual ~Array( void );
         Array &         operator=( Array const & rhs );
-        T &             operator[]( unsigned int const index );
+        T &             operator[]( const unsigned int index );
         void            print( unsigned int n ) const;
         unsigned int    size( void ) const;
 
@@ -37,16 +37,16 @@ Array<T>::Array( void ) {
 };
 
 template< typename T>
-Array<T>::Array( unsigned int const n ) {
+Array<T>::Array( const unsigned int n ) {
     this->_size = n;
     this->_array = new T[n];
     for ( unsigned int i = 0; i < n; i++ )
-        this->_array[i] = ( rand() % 42);
+        this->_array[i] = ( rand() % 42 );
     std::cout << "Unsigned int constructor" << std::endl;
 };
 
 template< typename T>
-Array<T>::Array ( Array const & rhs ) {
+Array<T>::Array ( const Array & rhs ) {
     this->_size = rhs.size();
     this->_array = new T[this->_size];
     for ( unsigned int i = 0; i < this->_size ; i++)
@@ -63,16 +63,17 @@ Array<T>::~Array( void ) {
 
 template< typename T>
 Array<T> &
-Array<T>::operator=( Array const & rhs ) {
+Array<T>::operator=( const Array & rhs ) {
     this->_size = rhs._size;
-    this->_array = rhs._array;
-    this = rhs;
+    for ( unsigned int i = 0; i < this->_size; i++) {
+        this->_array[i] = rhs._array[i];
+    }
     std::cout << "Operator =" << std::endl;
-    return this;
+    return *this;
 };
 
 template< typename T>
-T &     Array<T>::operator[]( unsigned int const index ) {
+T &     Array<T>::operator[]( const unsigned int index ) {
     if ( index >= this->_size )
         throw( std::out_of_range("Out of range") );
     return this->_array[index];
