@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 16:55:38 by crfernan          #+#    #+#             */
-/*   Updated: 2021/10/07 18:15:24 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/10/29 11:04:10 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,19 @@ int             main( void ) {
     b[4] = 'o';
 
     std::cout << "=== Print element ===" << std::endl;
-    ::iter( a, 3, print_element<int> );
+    iter( a, 3, print_element<int> );
     std::cout << std::endl;
-    ::iter( b, 5, print_element<char> );
+    iter( b, 5, print_element<char> );
     std::cout << std::endl;
 
     std::cout << "=== Add 1 element ===" << std::endl;
-    ::iter( a, 3, add_one_to_element<int> );
-    ::iter( b, 5, add_one_to_element<char> );
+    iter( a, 3, add_one_to_element<int> );
+    iter( b, 5, add_one_to_element<char> );
 
     std::cout << "=== Print element ===" << std::endl;
-    ::iter( a, 3, print_element<int> );
+    iter( a, 3, print_element<int> );
     std::cout << std::endl;
-    ::iter( b, 5, print_element<char> );
+    iter( b, 5, print_element<char> );
     std::cout << std::endl;
 
     delete a;
