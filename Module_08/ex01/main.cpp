@@ -6,40 +6,66 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 15:50:18 by crfernan          #+#    #+#             */
-/*   Updated: 2021/10/29 18:44:54 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/10/30 14:03:39 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-typedef std::list<int>              l_int;
-typedef const unsigned int          c_u_int;
-
-int     main( void ) {
+void    test_subject( void ) {
     c_u_int     span_size = 5;
-    Span        sp = Span(span_size);
+    Span        span = Span(span_size);
 
-    sp.addNumber(5);
-    sp.addNumber(3);
-    sp.addNumber(17);
-    sp.addNumber(9);
-    sp.addNumber(11);
+    span.addNumber(5);
+    span.addNumber(3);
+    span.addNumber(17);
+    span.addNumber(9);
+    span.addNumber(11);
 
-    l_int       sp_list = sp.get_list();
+    span.print_list();
+    std::cout << "Test Shortest Span : " << span.shortestSpan() << std::endl;
+    std::cout << "Test Longest Span  : " << span.longestSpan() << std::endl;
 
-    std::cout << "Printing List      : ";
-    for(l_int::iterator it = sp_list.begin(); it != sp_list.end(); it++)
-        std::cout << *it << ", ";
-    std::cout << std::endl;
+    return ;
+}
 
-    std::cout << "Test Shortest Span : " << sp.shortestSpan() << std::endl;
-    std::cout << "Test Longest Span  : " << sp.longestSpan() << std::endl;
-    std::cout << "Test Exceed Size   : ";
+void    test_exceptions( void ) {
+    c_u_int     span_size = 1;
+    Span        span = Span(span_size);
+    span.addNumber(42);
+
+    std::cout << "Test 1 element     : ";
     try {
-        sp.addNumber(0);
+        span.shortestSpan();
     } catch ( std::exception & e ) {
         std::cout << e.what() << std::endl;
     }
 
+    std::cout << "Test Exceed Size   : ";
+    try {
+        span.addNumber(0);
+    } catch ( std::exception & e ) {
+        std::cout << e.what() << std::endl;
+    }
+    return ;
+}
+
+void    test_addLooootsOfNumberssssS( void ) {
+    c_u_int     span_size = 100;
+    Span        span = Span(span_size);
+
+    span.addNumber(1);
+    span.addNumber(21);
+    span.addLooootsOfNumberssssS(2, 97, 42);
+    span.addNumber(1000);
+
+    span.print_list();
+    return ;
+}
+
+int     main( void ) {
+    test_subject();
+    test_exceptions();
+    test_addLooootsOfNumberssssS();
     return 0;
 }

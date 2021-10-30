@@ -6,15 +6,14 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 15:53:05 by crfernan          #+#    #+#             */
-/*   Updated: 2021/10/29 18:45:48 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/10/30 14:04:12 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
-typedef std::list<int>::iterator iterator;
 
 Span::Span( const unsigned int n ) {
-    this->_list_ints = std::list<int>( );
+    this->_list_ints = l_ints( );
     this->_size = n;
     this->_length = 0;
     return ;
@@ -40,8 +39,19 @@ Span &          Span::operator=( Span const & rhs ) {
     return *this;
 }
 
-std::list<int>  Span::get_list( void ) {
-    return this->_list_ints;
+void            Span::_print_element( int element ) {
+    std::cout << element << ", ";
+    return ;
+}
+
+void            Span::print_list( void ) {
+    iterator    it_begin = this->_list_ints.begin();
+    iterator    it_end = this->_list_ints.end();
+
+    std::cout << "Printing List      : ";
+    for_each(it_begin, it_end, Span::_print_element);
+    std::cout << "[ Len: " << this->_length << ", Size: " << this->_size << " ]" << std::endl;
+    return ;
 }
 
 void            Span::addNumber( int i ) {
@@ -52,36 +62,45 @@ void            Span::addNumber( int i ) {
     return ;
 }
 
+void            Span::addLooootsOfNumberssssS( uint position, uint number_to_add, int value ) {
+    if ( this->_length + number_to_add > this->_size )
+        throw( std::out_of_range("Out of range.") );
+
+    if ( position > this->_length )
+        throw( std::out_of_range("Out of range.") );
+
+    iterator    it;
+    for (it = this->_list_ints.begin(); position; position--)
+        it++;
+
+    this->_list_ints.insert(it, number_to_add, value);
+    this->_length += number_to_add;
+    return ;
+}
+
 int             Span::shortestSpan( void ) {
-    int         min = this->_get_min();
-    int         shortestSpan = INT_MAX;
-    iterator    it_end = this->_list_ints.end();
+    if ( this->_length < 2 )
+        throw( std::out_of_range("Not enough values.") );
 
-    for (iterator it = this->_list_ints.begin(); it != it_end; it++)
-        if (*it - min != 0 && *it - min < shortestSpan)
-            shortestSpan = *it - min;
+    l_ints      sorted_list = l_ints(this->_list_ints);
 
-    return shortestSpan;
+    sorted_list.sort();
+
+    iterator    it_begin = sorted_list.begin();
+    int         min = *( it_begin );
+    int         second_min = *( it_begin.operator++() );
+
+    return second_min - min;
 }
 
 int             Span::longestSpan( void ) {
-    int         min = this->_get_min();
-    int         longestSpan = INT_MIN;
+    if ( this->_length < 2 )
+        throw( std::out_of_range("Not enough values.") );
+
+    iterator    it_begin = this->_list_ints.begin();
     iterator    it_end = this->_list_ints.end();
+    iterator    it_min = std::min_element(it_begin, it_end);
+    iterator    it_max = std::max_element(it_begin, it_end);
 
-    for (iterator it = this->_list_ints.begin(); it != it_end; it++)
-        if (*it - min > longestSpan)
-            longestSpan = *it - min;
-
-    return longestSpan;
-}
-
-int             Span::_get_min( void ) {
-    int         min = INT_MAX;
-    iterator    it_end = this->_list_ints.end();
-
-    for (iterator it = this->_list_ints.begin(); it != it_end; it++)
-        if (*it < min)
-            min = *it;
-    return min;
+    return (*it_max - *it_min);
 }

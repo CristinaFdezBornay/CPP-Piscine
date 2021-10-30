@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 15:53:41 by crfernan          #+#    #+#             */
-/*   Updated: 2021/10/29 18:48:14 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/10/30 13:58:10 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,32 @@
 # include <list>
 # include <iostream>
 
+typedef std::list<int>              l_ints;
+typedef std::list<int>::iterator    iterator;
+typedef const unsigned int          c_u_int;
+
 class       Span {
     public:
         Span( void );
         Span( Span const & rhs );
-        Span( const unsigned int n );
+        Span( c_u_int n );
         virtual ~Span( void );
 
         Span &          operator=( Span const & rhs );
 
-        std::list<int>  get_list( void );
+        void            print_list( void );
 
         void            addNumber( int i );
+        void            addLooootsOfNumberssssS( uint position, uint number_to_add, int value );
+
         int             shortestSpan( void );
         int             longestSpan( void );
 
-        void            addLooootsOfNumberssssS( int i );
-
     private:
-        std::list<int>  _list_ints;
+        static void     _print_element( int element );
+        l_ints          _list_ints;
         unsigned int    _size;
         unsigned int    _length;
-        int             _get_min( void );
 };
 
 #endif
