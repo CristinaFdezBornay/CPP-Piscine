@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 15:53:41 by crfernan          #+#    #+#             */
-/*   Updated: 2021/10/30 13:58:10 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/10/30 17:04:04 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ class       Span {
     private:
         static void     _print_element( int element );
         l_ints          _list_ints;
+        unsigned int    _capacity;
         unsigned int    _size;
-        unsigned int    _length;
 };
 
 #endif

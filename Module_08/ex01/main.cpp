@@ -6,15 +6,15 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 15:50:18 by crfernan          #+#    #+#             */
-/*   Updated: 2021/10/30 14:03:39 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/10/30 17:04:49 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
 void    test_subject( void ) {
-    c_u_int     span_size = 5;
-    Span        span = Span(span_size);
+    c_u_int     span_capacity = 5;
+    Span        span = Span(span_capacity);
 
     span.addNumber(5);
     span.addNumber(3);
@@ -30,8 +30,8 @@ void    test_subject( void ) {
 }
 
 void    test_exceptions( void ) {
-    c_u_int     span_size = 1;
-    Span        span = Span(span_size);
+    c_u_int     span_capacity = 1;
+    Span        span = Span(span_capacity);
     span.addNumber(42);
 
     std::cout << "Test 1 element     : ";
@@ -51,8 +51,8 @@ void    test_exceptions( void ) {
 }
 
 void    test_addLooootsOfNumberssssS( void ) {
-    c_u_int     span_size = 100;
-    Span        span = Span(span_size);
+    c_u_int     span_capacity = 100;
+    Span        span = Span(span_capacity);
 
     span.addNumber(1);
     span.addNumber(21);
