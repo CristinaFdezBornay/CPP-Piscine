@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 14:10:19 by crfernan          #+#    #+#             */
-/*   Updated: 2021/10/30 18:51:07 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/11/02 09:57:08 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class MutantStack : public std::stack<T> {
         virtual ~MutantStack( void );
 
         MutantStack const &     operator=( const MutantStack & rhs );
+        T &                     operator[]( const unsigned int index );
 
         typedef std::iterator<std::bidirectional_iterator_tag, T> stack_iterator;
 
@@ -35,11 +36,9 @@ class MutantStack : public std::stack<T> {
                 iterator( MutantStack &ms, size_t index );
                 virtual ~iterator( void );
 
-                iterator        operator=( const iterator & it ) const;
+                iterator        operator=( const iterator & it );
                 T &             operator*( void ) const;
-                // iterator &      operator++( void );
                 iterator        operator++( void );
-                // iterator &      operator--( void );
                 iterator        operator--( void );
                 bool            operator!=( iterator const &it );
                 bool            operator==( iterator const &it );
@@ -72,6 +71,13 @@ template <typename T>
 MutantStack<T> const &     MutantStack<T>::operator=( const MutantStack & rhs ) {
     return rhs;
 }
+
+template< typename T>
+T &                         MutantStack<T>::operator[]( const unsigned int index ) {
+    if ( index < 0 || index >= this->c.size() )
+        throw( std::out_of_range("Out of range") );
+    return this->c[index];
+};
 
 template <typename T>
 typename MutantStack<T>::iterator   MutantStack<T>::begin( void ) {
@@ -106,7 +112,7 @@ MutantStack<T>::iterator::~iterator( void ) {
 }
 
 template <typename T>
-typename MutantStack<T>::iterator   MutantStack<T>::iterator::operator=( const iterator & it ) const {
+typename MutantStack<T>::iterator   MutantStack<T>::iterator::operator=( const iterator & it ) {
     this->_ms = it._ms;
     this->_index = it._index;
     return *this;
@@ -117,40 +123,32 @@ T &                                 MutantStack<T>::iterator::operator*( void ) 
     return this->_ms->c[this->_index];
 }
 
-// template <typename T>
-// typename MutantStack<T>::iterator & MutantStack<T>::iterator::operator++( void ) {
-//     if (this->_index < this->_ms->size())
-//         this->_index += 1;
-//     return *this;
-// }
-
 template <typename T>
 typename MutantStack<T>::iterator   MutantStack<T>::iterator::operator++( void ) {
     iterator it = iterator(*this);
-    // iterator tmp(*this);
     ++this->_index;
     return it;
 }
 
-// template <typename T>
-// typename MutantStack<T>::iterator & MutantStack<T>::iterator::operator--( void ) {
-//     this->_index -= 1;
-//     return ;
-// }
+template <typename T>
+typename MutantStack<T>::iterator   MutantStack<T>::iterator::operator--( void ) {
+    iterator it = iterator(*this);
+    --this->_index;
+    return it;
+}
 
-// template <typename T>
-// typename MutantStack<T>::iterator   MutantStack<T>::iterator::operator--( void ) {
-//     return ;
-// }
+template <typename T>
+bool        MutantStack<T>::iterator::operator==( iterator const &it ) {
+    if (this->_ms == it._ms && this->_index == it._index)
+        return true;
+    return false;
+}
 
-// template <typename T>
-// bool        MutantStack<T>::iterator::operator!=( iterator const &it ) {
-//     return ;
-// }
-
-// template <typename T>
-// bool        MutantStack<T>::iterator::operator==( iterator const &it ) {
-//     return ;
-// }
+template <typename T>
+bool        MutantStack<T>::iterator::operator!=( iterator const &it ) {
+    if (this->_ms != it._ms || this->_index != it._index)
+        return true;
+    return false;
+}
 
 #endif
