@@ -6,7 +6,7 @@
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 11:30:25 by crfernan          #+#    #+#             */
-/*   Updated: 2021/10/29 13:26:57 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/11/05 10:44:57 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ int         main( void ) {
     std::list<int> l_with_42( with_42, with_42 + sizeof(with_42) / sizeof(int) );
     test_easyfind(l_with_42, int_to_find);
 
-    int not_42[] = { 0, 1, 2, 3, 4 };
+    int     not_42[] = { 0, 1, 2, 3, 4 };
     std::list<int> l_not_42 (not_42, not_42 + sizeof(not_42) / sizeof(int) );
     test_easyfind(l_not_42, int_to_find);
 
-    int empty[] = { };
+    int     empty[] = { };
     std::list<int> l_empty (empty, empty + sizeof(empty) / sizeof(int) );
     test_easyfind(l_empty, int_to_find);
 
