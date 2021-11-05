@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   span.cpp                                           :+:      :+:    :+:   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 15:53:05 by crfernan          #+#    #+#             */
-/*   Updated: 2021/10/30 17:04:26 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/11/05 10:55:47 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-Span::Span( const unsigned int n ) {
+Span::Span( c_u_int n ) {
     this->_list_ints = l_ints( );
     this->_capacity = n;
     this->_size = 0;
@@ -48,9 +48,9 @@ void            Span::print_list( void ) {
     iterator    it_begin = this->_list_ints.begin();
     iterator    it_end = this->_list_ints.end();
 
-    std::cout << "Printing List      : ";
+    std::cout << "Printing List : ";
     for_each(it_begin, it_end, Span::_print_element);
-    std::cout << "[ Size: " << this->_size << ", Cap: " << this->_capacity << " ]" << std::endl;
+    std::cout << std::endl << "[ Size: " << this->_size << ", Cap: " << this->_capacity << " ]" << std::endl;
     return ;
 }
 
