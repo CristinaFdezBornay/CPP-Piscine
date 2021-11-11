@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mutantstack.hpp                                    :+:      :+:    :+:   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crfernan <crfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 14:10:19 by crfernan          #+#    #+#             */
-/*   Updated: 2021/11/02 09:57:08 by crfernan         ###   ########.fr       */
+/*   Updated: 2021/11/11 01:55:13 by crfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class MutantStack : public std::stack<T> {
         MutantStack( const MutantStack & rhs );
         virtual ~MutantStack( void );
 
-        MutantStack const &     operator=( const MutantStack & rhs );
+        MutantStack  &     operator=( MutantStack & rhs );
         T &                     operator[]( const unsigned int index );
 
         typedef std::iterator<std::bidirectional_iterator_tag, T> stack_iterator;
@@ -68,8 +68,9 @@ MutantStack<T>::~MutantStack( void ) {
 }
 
 template <typename T>
-MutantStack<T> const &     MutantStack<T>::operator=( const MutantStack & rhs ) {
-    return rhs;
+MutantStack<T> &     MutantStack<T>::operator=( MutantStack & rhs ) {
+    this->c = rhs.c;
+    return *this;
 }
 
 template< typename T>
